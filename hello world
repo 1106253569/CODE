@@ -1,6 +1,1 @@
-#include <iostream>
-int main()
-{
-    std::cout << "Hello world";
-    return 0;
-}
+Those whose never change their mind, never change anything
