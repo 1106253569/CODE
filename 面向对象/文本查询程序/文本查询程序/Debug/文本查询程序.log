@@ -1,0 +1,17 @@
+﻿  main.cpp
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\TextQuery.h(31,62): error C2969: 语法错误:“;”: 成员函数定义应以“}”结尾
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\TextQuery.h(38,37): error C2065: “is”: 未声明的标识符
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\TextQuery.h(38,27): error C2275: “std::ifstream”: 将此类型用作表达式非法
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\TextQuery.h(38): message : 参见“std::ifstream”的声明
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\TextQuery.h(38,39): error C2630: “;”在应是逗号分隔列表的位置找到了
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\TextQuery.h(38,41): error C2612: 基/成员初始值设定项列表中的非法后缀“:”
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\main.cpp(20,1): fatal error C1004: 发现意外的文件尾
+  TextQuery.cpp
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\TextQuery.h(31,62): error C2969: 语法错误:“;”: 成员函数定义应以“}”结尾
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\TextQuery.h(38,37): error C2065: “is”: 未声明的标识符
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\TextQuery.h(38,27): error C2275: “std::ifstream”: 将此类型用作表达式非法
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\TextQuery.h(38): message : 参见“std::ifstream”的声明
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\TextQuery.h(38,39): error C2630: “;”在应是逗号分隔列表的位置找到了
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\TextQuery.h(38,41): error C2612: 基/成员初始值设定项列表中的非法后缀“:”
+D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\TextQuery.cpp(44,1): fatal error C1004: 发现意外的文件尾
+  正在生成代码...
