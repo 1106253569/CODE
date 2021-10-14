@@ -76,7 +76,11 @@
         "xstddef": "cpp",
         "xstring": "cpp",
         "xtr1common": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "set": "cpp"
     },
     "workbench.colorTheme": "Atom One Light", // 格式化时调整include的顺序（按字母排序）
 }
