@@ -1,13 +1,14 @@
 #include "Sales_data.h"
-int main(int argc, char* argv[])
+int main(int argc, std::string argv)
 {
+	argc = 2;
 	if (argc != 2)
 	{
 		cerr << "请输入文件名"
 			<< "\n";
 		return -1;
 	}
-	ifstream in(argv[1]);
+	ifstream in("C:\\Users\\solitary cloud\\Downloads\\hamlet.txt");
 	if (!in)
 	{
 		cerr << "无法输入文件"

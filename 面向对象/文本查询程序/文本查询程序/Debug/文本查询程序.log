@@ -1,4 +1,4 @@
 ﻿  main.cpp
-D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\main.cpp(23,6): error C3861: “make_plural”: 找不到标识符
   TextQuery.cpp
   正在生成代码...
+  文本查询程序.vcxproj -> D:\Visual Studio\CODE\面向对象\文本查询程序\文本查询程序\Debug\文本查询程序.exe
