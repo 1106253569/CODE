@@ -1,0 +1,7 @@
+﻿  StrBlobPtr.cpp
+main.obj : error LNK2019: 无法解析的外部符号 "public: class StrBlobPtr __thiscall StrBlob::begin(void)" (?begin@StrBlob@@QAE?AVStrBlobPtr@@XZ)，函数 _main 中引用了该符号
+main.obj : error LNK2019: 无法解析的外部符号 "public: class StrBlobPtr __thiscall StrBlob::end(void)" (?end@StrBlob@@QAE?AVStrBlobPtr@@XZ)，函数 _main 中引用了该符号
+main.obj : error LNK2019: 无法解析的外部符号 "bool __cdecl neq(class StrBlobPtr const &,class StrBlobPtr const &)" (?neq@@YA_NABVStrBlobPtr@@0@Z)，函数 _main 中引用了该符号
+main.obj : error LNK2019: 无法解析的外部符号 "public: class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > & __thiscall StrBlobPtr::deref(void)const " (?deref@StrBlobPtr@@QBEAAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ)，函数 _main 中引用了该符号
+main.obj : error LNK2019: 无法解析的外部符号 "public: class StrBlobPtr & __thiscall StrBlobPtr::incr(void)" (?incr@StrBlobPtr@@QAEAAV1@XZ)，函数 _main 中引用了该符号
+D:\Visual Studio\CODE\面向对象\StrBlob\Debug\StrBlob.exe : fatal error LNK1120: 5 个无法解析的外部命令

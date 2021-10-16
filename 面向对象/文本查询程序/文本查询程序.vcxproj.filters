@@ -27,4 +27,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="C:\Users\solitary cloud\Documents\practise\hamlet.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="C:\Users\solitary cloud\Documents\practise\sun.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
