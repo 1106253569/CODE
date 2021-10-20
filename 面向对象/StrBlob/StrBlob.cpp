@@ -39,12 +39,12 @@ void StrBlob::pop_back()
     data->pop_back();
 }
 
-inline StrBlobPtr StrBlob::begin()
+inline StrBlobPtr StrBlob::begin() const
 {
     return StrBlobPtr(*this);
 }
 
-inline StrBlobPtr StrBlob::end()
+inline StrBlobPtr StrBlob::end() const
 {
     auto ret = StrBlobPtr(*this, data->size());
     return ret;

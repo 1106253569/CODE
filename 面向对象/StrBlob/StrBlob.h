@@ -22,19 +22,20 @@ public:
 	const std::string& front() const;
 	std::string& back();
 	const std::string& back() const;
-	StrBlobPtr begin();
-	StrBlobPtr end();
+	StrBlobPtr begin() const;
+	StrBlobPtr end() const;
 private:
 	std::shared_ptr<std::vector<std::string>> data;
 	void check(size_type i, const std::string& msg) const;
 };
-inline bool neq(const StrBlobPtr& , const StrBlobPtr& );
+
 class StrBlobPtr
 {
 	friend bool eq(const StrBlobPtr&, const StrBlobPtr&);
 public:
 	StrBlobPtr() :curr(0) {}
 	StrBlobPtr(StrBlob& a, size_t sz = 0) :wptr(a.data), curr(sz) {}
+	StrBlobPtr(const StrBlob&a,size_t sz=0):wptr(a.data),curr(sz){ }
 	std::string& deref()const;
 	StrBlobPtr& incr();
 	StrBlobPtr& decr();
@@ -44,4 +45,6 @@ private:
 	std::weak_ptr<std::vector<std::string>> wptr;
 	size_t curr;
 };
+
+inline bool neq(const StrBlobPtr& , const StrBlobPtr& );
 #endif // ! MY_STRBLOB_H
