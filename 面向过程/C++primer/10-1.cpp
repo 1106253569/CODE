@@ -5,7 +5,7 @@
 int main()
 {
     int argv;
-    char argc[] = "C:\\Users\\solitary cloud\\Downloads\\sun.txt ";
+    std::string argc = "D:\\Visual Studio\\CODE\\PractiseDocument\\sun.txt ";
     std::ifstream in(argc);
     if(!in)
     {
