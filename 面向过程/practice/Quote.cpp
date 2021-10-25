@@ -52,8 +52,7 @@ class Bulk_quote:public Disc_quote
 {
 public:
     Bulk_quote() = default;
-    Bulk_quote(const std::string &s, double sales_price, std::size_t n, double dis):
-                                        Disc_quote(s, sales_price,n,dis){}
+    using Disc_quote::Disc_quote;
     Bulk_quote(const Bulk_quote &B): Disc_quote(B) { printf("Bulk_quote(const Bulk_quote&B)\n"); }
     Bulk_quote(Bulk_quote &&B) : Disc_quote(std::move(B)) { printf("Bulk_quote(Bulk_quote&&B)\n"); }
     Bulk_quote& operator=(const Bulk_quote&B)
@@ -81,6 +80,22 @@ double Bulk_quote::net_price(std::size_t n) const
         return n * (1 - discount) * price;
         else
             return n * price;
+}
+
+class Limited_quote:public Disc_quote
+{
+public:
+    using Disc_quote::Disc_quote;
+    Limited_quote(const std::string &book = "", double sales_price = 0.0, size_t qty=0,double disc_rate=0.0):
+    Disc_quote(book,sales_price,qty,disc_rate){}
+    double net_price(size_t cut) const override;
+};
+double Limited_quote::net_price(size_t cnt) const
+{   
+    if(cnt<=quantity)
+        return cnt * (1 - discount) * price;
+        else
+            return quantity * (1 - discount) * price + (cnt - quantity) * price;
 }
 
 int main()
