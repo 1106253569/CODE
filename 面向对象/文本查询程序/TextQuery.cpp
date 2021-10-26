@@ -19,6 +19,10 @@ TextQuery::TextQuery(std::ifstream& is) :file(new std::vector<std::string>)
 	}
 }
 
+TextQuery::~TextQuery()
+{
+}
+
 QueryResult TextQuery::query(const std::string&sought) const
 {
 	static std::shared_ptr<std::set<line_no>> nodata(new std::set<line_no>);

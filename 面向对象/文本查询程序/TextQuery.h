@@ -1,4 +1,6 @@
 #pragma once
+#ifndef TEXT_QUERY
+#define TEXT_QUERY
 #include <iostream>
 #include <vector>
 #include <istream>
@@ -7,6 +9,7 @@
 #include <string>
 #include <sstream> 
 #include <fstream> 
+#include <memory>
 class QueryResult
 {
 	friend std::ostream& print(std::ostream&, const QueryResult&);
@@ -29,8 +32,10 @@ public:
 	TextQuery() = default;
 	using line_no = std::vector<std::string>::size_type;
 	TextQuery(std::ifstream&);
+	~TextQuery();
 	QueryResult query(const std::string&) const;	
 private:
 	std::shared_ptr<std::vector<std::string>> file;
 	std::map<std::string, std::shared_ptr<std::set<line_no>>>wm;
 };
+#endif // !TEXT_QUERY

@@ -18,12 +18,30 @@
     <ClInclude Include="TextQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Query_base.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Binary_query.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Query.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextQuery.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Query_base.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Binary_query.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Query.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -139,10 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Binary_query.h" />
+    <ClInclude Include="Query.h" />
+    <ClInclude Include="Query_base.h" />
     <ClInclude Include="TextQuery.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Binary_query.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Query.cpp" />
+    <ClCompile Include="Query_base.cpp" />
     <ClCompile Include="TextQuery.cpp" />
   </ItemGroup>
   <ItemGroup>
