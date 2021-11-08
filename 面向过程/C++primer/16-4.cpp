@@ -17,5 +17,5 @@ int main()
 {
     std::vector<int> v1 = {0, 1, 2, 3, 4, 5, 6};
     std::list<std::string> ls = {"hello", "world", "!"};
-    
+    return 0;
 }
