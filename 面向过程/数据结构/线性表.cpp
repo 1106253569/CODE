@@ -91,3 +91,31 @@ Array_list<T>::Array_list(const Array_list<T> &the_list)
     element = new T[element];
     copy(the_list.element, the_list.element + this->element, this->element);
 }
+
+template <typename T>
+void Array_list<T>::check_Index(int the_index) const
+{
+    if (the_index < 0 || the_index >= list_size)
+    {
+        std::ostringstream s;
+        s << "index=" << the_index << "\tsize=" << list_size;
+        throw illegalParameterValue(s.str());
+    }
+}
+
+template <typename T>
+T &Array_list<T>::get(int the_index) const
+{
+    check_Index(the_index);
+    return element[the_index];
+}
+
+template <typename T>
+int Array_list<T>::index_Of(const T &the_element) const
+{
+    int the_index = (int)(find(element, element + list_size, the_element) - element);
+    if (the_index == list_size)
+        return -1;
+    else
+        return the_index;
+}
