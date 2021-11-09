@@ -120,107 +120,108 @@ int Array_list<T>::index_Of(const T &the_element) const
         return the_index;
 }
 
-template<typename T>
+template <typename T>
 void Array_list<T>::erase(int the_index)
 {
     check_Index(the_index);
-    copy(this->element,the_element+1,this->element+this->list_size,this->element+the_Index);
+    copy(this->element, the_element + 1, this->element + this->list_size, this->element + the_Index);
     element[--list_size].~T();
 }
 
-template<typename T>
-void Array_list<T>::insert(int the_index,const T& the_element)
+template <typename T>
+void Array_list<T>::insert(int the_index, const T &the_element)
 {
-    if(the_index<0||the_element>list_size)
+    if (the_index < 0 || the_element > list_size)
     {
         std::ostringstream s;
-        s<<"index="<<the_index<<"\tsize="<<list_size;
+        s << "index=" << the_index << "\tsize=" << list_size;
         throw illegalParameterValue(s.str());
     }
-    if(list_size==array_lenght)
+    if (list_size == array_lenght)
     {
         //空间已满，容量翻倍
-        Changr_length1D(element,array_lenght,2*array_lenght);
-        array_lenght*=2;
+        Changr_length1D(element, array_lenght, 2 * array_lenght);
+        array_lenght *= 2;
     }
-    copy_backward(element+the_index,element+list_size,element+element+1);
-    element[the_index]=the_element;
+    copy_backward(element + the_index, element + list_size, element + element + 1);
+    element[the_index] = the_element;
     list_size++;
 }
 
-template<typename T>
-void Array_list<T>::output(std::ostream&os) const
+template <typename T>
+void Array_list<T>::output(std::ostream &os) const
 {
     //线性表插入的输出流
-    copy(element,element+list_size,std::ostream_iterator<T>(std::cout,"  "));
+    copy(element, element + list_size, std::ostream_iterator<T>(std::cout, "  "));
 }
 
 //重载<<
-template<typename T>
-std::ostream& operator<<(std::ostream& os,const array_lenght<T>& x)
+template <typename T>
+std::ostream &operator<<(std::ostream &os, const Array_list<T> &x)
 {
     x.output(os);
     return os;
 }
 
-template<typename T>
-void copy(std::iterator start,std::iterator end,iterator to)
-{
-    while(start!=end)
-    {
-        *to=*start;
-        start++;
-        to++;
-    }
-}
-
+template <typename T>
 class iterator
 {
 public:
-    using iterator_category=std::bidirectional_iterator_tag;
-    using value_type=T;
-    using difference_type=ptrdiff_t;
-    using pointer=*T;
-    using reference=T&;
+    using iterator_category = std::bidirectional_iterator_tag;
+    using value_type = T;
+    using difference_type = ptrdiff_t;
+    using pointer = *T;
+    using reference = T &;
 
     //构造函数
-    iterator(T* the_position=0){position=the_position;}
+    iterator(T *the_position = 0) { position = the_position; }
 
     //解引用操作符
-    T& operator*() const {return *position;}
-    T* operator->() const {return &*position;}
+    T &operator*() const { return *position; }
+    T *operator->() const { return &*position; }
 
     //迭代器值增加
-    iterator& operator++() 
+    iterator &operator++()
     {
         ++position;
         return *this;
     }
     iterator operator++(int)
     {
-        iterator old=*this;
+        iterator old = *this;
         ++position;
         return old;
     }
 
     //迭代器的值减少
-    iterator& operator--()
+    iterator &operator--()
     {
         --position;
         return *this;
     }
     iterator operator--(int)
     {
-        iterator old=*this;
+        iterator old = *this;
         --position;
         return *this;
     }
 
     //测试是否相等
-    bool operator!=(const iterator right )const{return position!=right.position;}
-    bool operator==(const iterator right) const{return position==right.position;}
+    bool operator!=(const iterator right) const { return position != right.position; }
+    bool operator==(const iterator right) const { return position == right.position; }
+
 protected:
     //指向表元素的指针
-    T* position; 
+    T *position;
+};
 
-}；
+template <typename T>
+void copy(iterator start, iterator end, iterator to)
+{
+    while (start != end)
+    {
+        *to = *start;
+        start++;
+        to++;
+    }
+}
