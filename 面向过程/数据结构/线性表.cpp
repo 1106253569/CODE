@@ -44,6 +44,36 @@ void Changr_length1D(T *&a, int old_lenght, int new_lenght)
     a = temp;
 }
 
+template<typename T>
+void changeLength2D(T**& a, int oldRows, int copyRows,
+                    int copyColumns, int newRows, int newColumns)
+{
+    // Resize the two-dimensional array a that has oldRows number of rows.
+    // The dimensions of the resized array are newRows x newColumns.
+    // Copy the top left oldRows x newColumns sub array into the resized array.
+    // make sure new dimensions are adequate
+    if (copyRows > newRows || copyColumns > newColumns)
+        throw illegalParameterValue("new dimensions are too small");
+
+    T** temp = new T*[newRows];              // array for rows
+    // create row arrays for temp
+    for (int i = 0; i < newRows; i++)
+        temp[i] = new T[newColumns];
+    // copy from old space to new space, delete old space
+    for (int i = 0; i < copyRows; i++)
+    {
+        copy(a[i], a[i] + copyColumns, temp[i]);
+        delete [] a[i];                      // deallocate old memory
+    }
+
+    // delete remaining rows of a
+    for (int i = copyRows; i < oldRows; i++)
+        delete [] a[i];
+    delete [] a;
+    a = temp;
+}
+
+
 template <typename T>
 class Array_list : public Linear_list<T>
 {
@@ -216,7 +246,7 @@ protected:
 };
 
 template <typename T>
-void copy(iterator start, iterator end, iterator to)
+void copy(iterator<T>& start, iterator<T>& end, iterator<T>& to)
 {
     while (start != end)
     {
@@ -224,4 +254,23 @@ void copy(iterator start, iterator end, iterator to)
         start++;
         to++;
     }
+}
+
+template<typename T>
+void Array_list_With_TrimToSize<T>::trimToSize()
+{
+    // Make array length equal to max{list_size, 1}
+    if (array_lenght == list_size)
+        return;
+    if (list_size == 0)
+    {
+        // replace with array of length 1
+        delete [] element;
+        element = new T[1];
+        array_lenght  = 1;
+        return;
+    }
+    // need to change array length and copy eleements into new array
+    changeLength1D(element, list_size, list_size);
+    array_lenght = list_size;
 }
