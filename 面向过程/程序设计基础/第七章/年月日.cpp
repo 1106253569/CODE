@@ -6,7 +6,7 @@ struct day
     int mouth;
     int day;
     int sum;
-}day1;
+} day1;
 int main()
 {
     int days(int x, int y, int z);
@@ -21,16 +21,16 @@ int main()
     return 0;
 }
 
-int days(int x,int y,int z)
+int days(int x, int y, int z)
 {
-    int a[13] = {0,31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    int sum=0;
-    if(x%4==0&&x%100!=0||x%400==0)
+    int a[13] = {0, 31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int sum = 0;
+    if (x % 4 == 0 && x % 100 != 0 || x % 400 == 0)
         a[2] = 29;
-        else
-            a[2] = 28;
-        for (int i = 1; i< y ;i++)
-            sum += a[i];
-        sum += z;
-        return (sum);
+    else
+        a[2] = 28;
+    for (int i = 1; i < y; i++)
+        sum += a[i];
+    sum += z;
+    return (sum);
 }

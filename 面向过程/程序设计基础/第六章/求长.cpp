@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
     char word[100];
-    int fac(char * f);
+    int fac(char *f);
     cout << "please enter word:";
     cin >> word;
     char *f = word;
@@ -15,8 +15,8 @@ int main()
 
 int fac(char *f)
 {
-    int i,a;
-    for ( a = 0; *(f+a)!='\0';a++)
+    int i, a;
+    for (a = 0; *(f + a) != '\0'; a++)
     {
         int i = 1;
         i++;

@@ -10,17 +10,17 @@ int main()
     h = &c;
     cout << "please enter nuber:";
     cin >> a >> b >> c;
-    if(a>b)
+    if (a > b)
         fac(f, g);
-        if(a>c)
-            fac(f, h);
-            if(b>c)
-                fac(g, h);
-            cout << *f << " " << *g << " " << *h;
-            return 0;
+    if (a > c)
+        fac(f, h);
+    if (b > c)
+        fac(g, h);
+    cout << *f << " " << *g << " " << *h;
+    return 0;
 }
 
-void fac(int *x,int *y)
+void fac(int *x, int *y)
 {
     int temp;
     temp = *x;

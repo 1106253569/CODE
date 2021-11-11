@@ -11,17 +11,17 @@ int main()
     h = &c;
     cout << "please enter word:";
     cin >> a >> b >> c;
-    if(a>b)
+    if (a > b)
         fac(f, g);
-        if(a>c)
-            fac(f, h);
-            if(b>c)
-                fac(g, h);
-            cout << *f << " " << *g << " " << *h;
-            return 0;
+    if (a > c)
+        fac(f, h);
+    if (b > c)
+        fac(g, h);
+    cout << *f << " " << *g << " " << *h;
+    return 0;
 }
 
-void fac(string *x,string *y)
+void fac(string *x, string *y)
 {
     string temp;
     temp = *x;
