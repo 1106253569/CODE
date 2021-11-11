@@ -1,34 +1,38 @@
 #pragma once
 #include <iostream>
-#include <memory>
-#include <map>
 #include <list>
+#include <map>
+#include <math.h>
+#include <memory>
 #include <vector>
 class Metix
 {
-    //¾ØÕóÏà¼Ó
-    friend Metix& operator+(const Metix&, const Metix&);
-    //¾ØÕóÏà¼õ
-    friend Metix& operator-(const Metix&, const Metix&);
-    //¾ØÕóÏà³Ë
-    friend Metix& operator*(const Metix&, const Metix&);
-    //¾ØÕóÏà³ı
-    friend Metix& operator/(const Metix&, const Metix&);
+    friend Metix &operator+(const Metix &, const Metix &);
+    friend Metix &operator-(const Metix &, const Metix &);
+    friend Metix &operator*(const Metix &, const Metix &);
+    friend Metix &operator/(const Metix &, const Metix &);
 
 public:
-    Metix() = default;                  
-    Metix(std::istream&);
-    Metix(std::string&);
-    bool operator==(const Metix&) const;
-    Metix& operator*(int) const;
+    Metix() = default;
+    Metix(std::istream &);
+    Metix(std::string &);
     
+    Metix &operator*(int) const;
+    virtual ~Metix() = default;
+    //è¡Œæ•°
     int Max_line() const { return A.size(); }
+    //åˆ—æ•°
     int Max_row() const { return A[0].size(); }
-    void push_back(const std::vector<double>& V) { A.push_back(V); }
-    const std::vector<double>& operator[](int i) const { return this->A[i]; }
+    //åŠ å…¥ä¸€è¡Œ
+    void push_back(const std::vector<double> &V) { A.push_back(V); }
+    //å–ä¸‹æ ‡
+    const std::vector<double> &operator[](int i) const { return this->A[i]; }
+    //è®¡ç®—è¡Œåˆ—å¼
     double Dterminant() const;
-    virtual ~Metix()=default;
+    bool operator==(const Metix &) const;
+
 protected:
     std::vector<std::vector<double>> A;
+    //åˆ¤æ–­è¡Œåˆ—ç›¸ç­‰
     void check() const;
 };
