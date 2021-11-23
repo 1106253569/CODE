@@ -1,3 +1,16 @@
-import numpy as np
-a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
-print(a[1])
+import math
+
+
+def getNum():
+    nums = []
+    iNum = input("please enter number: ")
+    while iNum != "":
+        nums.append(eval(iNum))
+        iNum = input("please enter number: ")
+    return nums
+
+
+def mean(numbers):
+    s = 0.0
+    for num in numbers:
+        s = s + sum
