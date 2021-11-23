@@ -13,7 +13,7 @@ void linkedBinaryTree<E>::preOrder(binaryTreeNode<E> *t)
 }
 
 template <typename E>
-int height(binaryTreeNode<E> *t)
+int  linkedBinaryTree<E>::height(binaryTreeNode<E> *t)
 {
     if (t == NULL)
         return 0;
