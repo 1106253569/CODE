@@ -30,8 +30,8 @@ public:
     virtual vertexIterator<T> *iterator(int) = 0;
 };
 
-template<typename T>
-class adjacencyWDigraph:public graph<T>
+template <typename T>
+class adjacencyWDigraph : public graph<T>
 {
 protected:
     //顶点个数
@@ -45,19 +45,18 @@ protected:
 
 public:
     //构造函数
-    adjacencyWDigraph(int numberOfVertices=0,T theNoEdge=0)
+    adjacencyWDigraph(int numberOfVertices = 0, T theNoEdge = 0)
     {
         //确认顶点数的合法性
-        if(numberOfVertices<0)
+        if (numberOfVertices < 0)
             throw std::illegalParameterValue("number of vertices must be >= 0");
-        n=numberOfVertices;
-        e=0;
-        noEdge=theNoEdge;
-        make2dArray(a,n+1,n+1);
+        n = numberOfVertices;
+        e = 0;
+        noEdge = theNoEdge;
+        make2dArray(a, n + 1, n + 1);
         //初始化邻接矩阵
-        for(int i=1;i<=n;i++)
-            fill(a[i],a[i]+n+1,noEdge);
+        for (int i = 1; i <= n; i++)
+            fill(a[i], a[i] + n + 1, noEdge);
     }
-    ~adjacencyWDigraph(){delete2dArray(a,n+1);}
-
-}
+    ~adjacencyWDigraph() { delete2dArray(a, n + 1); }
+};
