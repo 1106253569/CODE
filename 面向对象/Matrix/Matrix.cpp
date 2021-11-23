@@ -1,13 +1,13 @@
 #include "Matrix.h"
 
-//ÅĞ¶ÏĞĞÁĞÊÇ·ñÏàµÈ
+//ï¿½Ğ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 void Matrix::check() const
 {
     if (this->Max_line() != this->Max_row())
         throw std::out_of_range("line!=row");
 }
 
-//¾ØÕó±¶ÊıÏà³Ë
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 Matrix &Matrix::operator*(int n) const
 {
     for (int i = 0; i < this->Max_line(); i++)
@@ -17,13 +17,13 @@ Matrix &Matrix::operator*(int n) const
 
 Matrix::Matrix(std::istream &is)
 {
-    printf("ÊäÈë¾ØÕóĞĞÊı");
+    printf("è¾“å…¥è¡Œæ•°ï¼š");
     int n;
     is >> n;
-    printf("ÊäÈëÁĞÊı");
+    printf("è¾“å…¥åˆ—æ•°ï¼š");
     int m;
     is >> m;
-    printf("ÊäÈëÊıÖµ");
+    printf("è¾“å…¥æ•°å­—");
     int i = 0, x = 0;
     while (i < n)
     {
@@ -38,7 +38,7 @@ Matrix::Matrix(std::istream &is)
     }
 }
 
-//ÅĞ¶ÏÍ¬ĞÍ¾ØÕó
+//åˆ¤æ–­åŒå‹çŸ©é˜µ
 bool Matrix::operator==(const Matrix &M) const
 {
     if (this->Max_line() == M.Max_line() && this->Max_row() == M.Max_row())
@@ -47,7 +47,7 @@ bool Matrix::operator==(const Matrix &M) const
         return false;
 }
 
-//¼ÆËãÄæĞòÊı
+//è®¡ç®—é€†åºæ•°
 int sort(const std::vector<int> &A)
 {
     int k = 0, b = 1;
@@ -57,14 +57,14 @@ int sort(const std::vector<int> &A)
                 ++k;
     return (b * pow(-1, k));
 }
-//ÀûÓÃµİ¹éÊÕ¼¯Êı¾İ
+//è®¡ç®—æ¯è¡Œä¹˜ç§¯å’Œ
 double Data(const Matrix &M, std::vector<double> &A, std::vector<int> &sub)
 {
     int i = 0;
     double sum = 0.0;
     while (i < M.Max_line())
     {
-        //Lambdaº¯ÊıÅĞ¶ÏÊÇ·ñÎªÍêÈ«²»Í¬µÄÁĞÊı
+        //åˆ¤æ–­æ˜¯å¦ä¸ºæ–°åˆ—
         if ([](int i, std::vector<int> &s) -> bool
             {
                 for (const auto j : s)
@@ -75,28 +75,30 @@ double Data(const Matrix &M, std::vector<double> &A, std::vector<int> &sub)
         {
             A.push_back(M[sub.size()][i]);
             sub.push_back(i);
-            //ÒÑ¾­¼ÓÈë¸÷ĞĞÔªËØÔò½øĞĞ¼ÆËã
+            //æ»¡åˆ™è®¡ç®—
             if (A.size() == M.Max_row())
             {
+                double temp;
                 for (auto i : A)
-                    sum += i;
-                return sort(sub) * sum;
+                    temp = temp * i;
+                sum += sort(sub) * temp;
             }
-            //Î´¼ÓÈëÍê±ÏÔò¼ÌĞøµİ¹é
+            //é€’å½’
             else
                 Data(M, A, sub);
         }
         else
             ++i;
     }
+    return sum;
 }
-//¼ÆËã¾ØÕóĞĞÁĞÊ½
+//è®¡ç®—è¡Œåˆ—å¼
 double Matrix::Dterminant() const
 {
     check();
-    //´æ´¢Êı¾İ
+    //è®°å½•ä¸€æ¬¡è®¡ç®—çš„å€¼
     std::vector<double> data;
-    //´æ´¢ÏÂ±êÎ»ÖÃ
+    //è®°å½•åºåˆ—
     std::vector<int> subscript;
     return Data(*this, data, subscript);
 }
