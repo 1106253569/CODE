@@ -1,0 +1,9 @@
+clear;
+p1=[1,1,1];
+r1=roots(p1)
+p2=[3,-4,0,2,-1];
+r2=roots(p2)
+p3=[2,3];
+p4=conv(p3,p3);
+p4=conv(p4,p3);
+r4=roots(p4)
