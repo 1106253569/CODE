@@ -1,0 +1,11 @@
+fun=@(x)abs(sin(x));
+h=0.1;
+x=0:h:32*pi;
+y=feval(fun,x);
+t1=trapz(x,y);
+h=pi;
+x=0:h:32*pi;
+y=feval(fun,x);
+t2=trapz(x,y);
+q1=quad(fun,0,32*pi)
+q2=quadl(fun,0,32*pi)

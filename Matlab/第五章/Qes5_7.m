@@ -1,4 +1,4 @@
-clear;f
+clear;
 xa=-1:0.1:1;
 ya=0:0.1:2;
 [x,y]=meshgrid(xa,ya);
