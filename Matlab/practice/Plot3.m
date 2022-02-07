@@ -7,4 +7,3 @@ title('墨西哥帽顶曲线');
 xlabel('x=e^{-t/10}sin(5t)');
 ylabel('y=e^{-t/10}cos(5t)');
 zlabel('z=t');
-

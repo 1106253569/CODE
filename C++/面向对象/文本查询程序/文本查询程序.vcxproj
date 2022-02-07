@@ -152,8 +152,7 @@
     <ClCompile Include="TextQuery.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="C:\Users\solitary cloud\Documents\practise\hamlet.txt" />
-    <Text Include="C:\Users\solitary cloud\Documents\practise\sun.txt" />
+    <Text Include="..\..\..\Document\sun.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
