@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Basic syntax</title>
+    <link rel="stylesheet" href="css文件路径" />
+    <script src="js文件路径" type="text/javaScript" charset="utf-8"></script>
+</head>
+
+<body bgcolor="red" text="yellow">
+    <!-- 没有name无法提交-->
+    <form action="http://www.baidu.com" method="get" target="_blank">
+        文本框:<input type="text" value="zhangsan" maxlength="10" name="uname"/><br />
+        文本框:<input type="text" value="zhangsan" readonly="readonly" /><br />
+        密码框:<input type="password" /> <br />
+        <!--单选框需要把name属性设置为一组-->
+        单选框:<input type="radio" value="man" name="sex">man
+        <input type="radio" value="woman" name="sex">woman<br />
+
+        复选框:<input type="checkbox" value="1" name="test">1
+        <input type="checkbox" value="1" name="test">2
+        <input type="checkbox" value="1" name="test">3<br />
+
+        <!--
+        所上传文件的表单，则表单需要设置属性enctype="multipart/form-data"
+        提交方式为POST
+        -->
+        文件域:<input type="file" /> <br />
+        隐藏域:<input type="hidden" value="admin"><br />
+        普通按钮:<input type="button" value="普通按钮" disabled="disabled"/><br />
+        提交按钮:<input type="submit" value="提交按钮" /><br />
+        重置按钮:<input type="reset" value="重置按钮" /><br />
+        日期框:<input type="date" />
+    </form>
+    <img src="data:image/jpeg;base64,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"/>
+
+</body>
+
+</html>
