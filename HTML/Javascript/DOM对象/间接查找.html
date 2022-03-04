@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>简介查找</title>
+</head>
+
+<body>
+    <ul>
+        <li id="red">red</li>
+        <li id="green">green</li>
+    </ul>
+    <span id="programmer">程序员</span>
+    <a href="javascript:void(0)" onclick="delNode()">delete</a>
+</body>
+
+<script type="text/javascript">
+    var ul=document.getElementsByTagName("ul")[0];
+    console.log(ul.childNodes);
+    console.log(ul.children);
+    console.log(ul.firstChild);
+    console.log(ul.firstElementChild);
+    console.log(ul.lastChild);
+    console.log(ul.lastElementChild);
+    console.log(document.getElementById("red").nextSibling);
+    console.log(document.getElementById("red").previousSibling);
+    console.log(ul.parentNode);
+    console.log(ul.parentElement);
+    //删除节点
+    function delNode(){
+        var span = document.getElementById("programmer");
+        var parent = span.parentElement;
+        parent.removeChild(span);
+    }
+</script>
+
+</html>

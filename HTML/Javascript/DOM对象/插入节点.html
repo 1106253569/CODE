@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>插入节点</title>
+</head>
+
+<body>
+    <ul>
+        <li id="red">red</li>
+        <li>green</li>
+    </ul>
+</body>
+
+<script type="text/javascript">
+    document.write("<h2>Hello<h2/>");
+    var li =document.createElement("li");
+    var txt = document.createTextNode("pink");
+    li.appendChild(txt);
+    document.getElementById("red").parentElement.insertBefore(li,document.getElementById("red"));
+</script>
+
+</html>

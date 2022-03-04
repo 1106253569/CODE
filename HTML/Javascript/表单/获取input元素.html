@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>demo</title>
+</head>
+
+<body>
+    <form id="myform" action="" method="get" target="_blank">
+        文本框:<input id="uname" type="text" value="zhangsan" maxlength="10" name="uname" /><br />
+        密码框:<input type="password" /> <br />
+        <!--单选框需要把name属性设置为一组-->
+        单选框:<input  type="radio" value="man" name="sex">man
+        <input  type="radio" value="woman" name="sex">woman
+        <br />
+
+        复选框:<input type="checkbox" value="1" name="test">1
+        <input type="checkbox" value="1" name="test">2
+        <input type="checkbox" value="1" name="test">3<br />
+
+        <!--
+        所上传文件的表单，则表单需要设置属性enctype="multipart/form-data"
+        提交方式为POST
+        -->
+        文件域:<input type="file" /> <br />
+        隐藏域:<input name="uno" type="hidden" value="admin"><br />
+        普通按钮:<input type="button" value="普通按钮" disabled="disabled" /><br />
+        提交按钮:<input type="submit" value="提交按钮" /><br />
+        重置按钮:<input type="reset" value="重置按钮" /><br />
+        日期框:<input type="date" /><br/>
+        个人说明<textarea name="intro" ></textarea>
+    </form>
+    下拉框:
+    <select id="uform" name="uform">
+        <option value="-1">please select</option>
+        <option value="0" selected="selected">beijing</option>
+        <option value="1">shanghai</option>
+    </select><br/>
+    <hr/>
+    <button type="button" onclick="getTxt1()">获取文本框内容1</button>
+    <button type="button" onclick="getTxt2()">获取文本框内容2</button>
+    <button type="button" onclick="getName()">获取文本框内容3</button>
+    <button type="button" onclick="getTag()">获取文本框内容4</button>
+    <button type="button" onclick="getRadio()">获取选项</button>
+    <button type="button" id="sub">获取下拉框</button>
+</body>
+
+<script type="text/javascript">
+    function getTxt1() {
+        var uname = document.getElementById("uname").value;
+        console.log(uname);
+    }
+    function getTxt2(){
+        var myform=document.getElementById("myform");
+        var upwd = myform.uname.value;
+        console.log(upwd);
+    }
+    function getName(){
+        var uno = document.getElementsByName("uno")[0].value;
+        console.log(uno); 
+    }
+    function getTag(){
+        var intro = document.getElementsByTagName("textarea")[0].value;
+        console.log(intro);
+    }
+    function getRadio(){
+        var rad=document.getElementsByName("sex");
+        for(var i = 0 ;i<rad.length; i++){
+            console.log(rad[i].checked);
+        }
+    }
+    document.getElementById("sub").onclick = function(){
+        var uform = document.getElementById("uform");
+        var selectop = uform.options;
+        console.log(selectop);
+        var index = uform.selectIndex;
+        console.log(index);
+
+    }
+
+</script>
+
+</html>

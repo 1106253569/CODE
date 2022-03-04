@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Time</title>
+</head>
+
+<body>
+    <button type="button" onclick="toBaidu()">3秒跳转到百度</button>
+    <hr/>
+    <div>
+        <button type="button" onclick="init()">begin</button>
+        <button type="button" onclick="stop()">end</button>
+        <h2 id="time"></h2>
+    </div>
+    <div>
+        <button type="button" onclick="hello()">定时执行</button>
+    </div>
+</body>
+
+<script type="text/javascript">
+    setTimeout(function () {
+        console.log("3s is over");
+        console.log(new Date().toLocaleTimeString());
+    }, 3000);
+    function toBaidu() {
+        setTimeout(test, 3000);
+    }
+    function test() {
+        window.open("http://www.baidu.com");
+    }
+    console.log(new Date().toLocaleTimeString());
+    var id;
+    function init() {
+        var time = new Date().toLocaleTimeString();
+        document.getElementById("time").innerHTML = time;
+        id = setTimeout(init, 1000);
+    }
+    function stop(){
+        clearTimeout(id);
+    }
+    function hello(){
+        setInterval(function(){
+            console.log("hello");
+        },1000);
+    }
+</script>
+
+</html>

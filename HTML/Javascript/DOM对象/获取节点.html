@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>获取节点</title>
+</head>
+
+<body>
+    <div>
+        <p id="z123" class="para">Hello world</p>
+        <p id="z123" class="para">Goodbye world</p>
+    </div>
+    <div>
+        <input type="checkbox" value="1" name="test">1
+        <input type="checkbox" value="1" name="test">2
+        <input type="checkbox" value="1" name="test">3<br />
+    </div>
+    <div>
+        <select name="city">
+            <option>beijing</option>
+            <option selected="selected">shanghai</option>
+            <option>guangzhou</option>
+            <option>shenzhen</option>
+            <option disabled="disabled">xiamen</option>
+            <option>xian</option>
+        </select>
+    </div>
+    <div>
+        <a href="javascript:void(0)" onclick="testByid()">ID获取</a>
+        <a href="javascript:void(0)" onclick="testByName()">name获取</a>
+        <a href="javascript:void(0)" onclick="testByClass()">class获取</a>
+        <a href="javascript:void(0)" onclick="testByTagName()">标签名获取</a>
+    </div>
+</body>
+
+<script type="text/javascript">
+    function testByid(){
+        var p = document.getElementById("z123");
+        console.log(p);
+    }
+    function testByName(){
+        var num = document.getElementsByName("test");
+        console.log(num);
+    }
+    function testByTagName(){
+        var inputs = document.getElementsByTagName("input");
+        console.log(inputs);
+    }
+</script>
+
+</html>

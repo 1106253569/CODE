@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>BOM</title>
+</head>
+
+<body>
+    <button type="button" onclick="testAlert()">消息框</button>
+    <button type="button" onclick="testPro()">输入框</button>
+    <button type="button" onclick="testConfirm()">确认框</button>
+    <hr/>
+    <button type="button" id="openWindow">打开窗口</button>
+</body>
+
+<script type="text/javascript">
+    function testAlert() {
+        alert("笑死"); /*会阻止代码执行*/
+        console.log("Hello");
+    }
+    function testPro() {
+        var uname = window.prompt("please enter name", "your name");
+        console.log("over!");
+    }
+    function testConfirm(){
+        var flag= confirm("Are you sure ?");
+        if(flag){
+            alert("success");
+        }
+        else{
+            alert("nothing");
+        }
+    }
+    document.getElementById("openWindow").onclick=function(){
+        window.open("常用事件.html");
+    }
+    
+
+</script>
+
+</html>
