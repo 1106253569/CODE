@@ -12,14 +12,14 @@ async def download(url):
     
 async def main():
     urls={
-        'http://www.baidu.com',
-        'http://www.bilibili.com',
-        'http://www.163.com'
+        'https://www.vcg.com/creative/1011322625',
+        'https://www.vcg.com/creative/1001890342',
+        'https://www.vcg.com/creative/816934896'
     }
     
     tasks=[]
     for url in urls:
-        d=download(url)
+        d=asyncio.create_task(download(url))
         tasks.append(d)
         
     await asyncio.wait(tasks)
