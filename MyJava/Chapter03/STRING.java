@@ -12,12 +12,12 @@ public class STRING {
         System.out.println(all);
         System.out.println("Java/".repeat(3));
         /*
-        *if (greeting.equals(s)) {
-        *    System.out.println("These is one string");
-        *} else {
-        *    System.out.println("There is no a String ");
-        *}
-        */
+         *if (greeting.equals(s)) {
+         *    System.out.println("These is one string");
+         *} else {
+         *    System.out.println("There is no a String ");
+         *}
+         */
         System.out.println(greeting.length());
         System.out.println(greeting.codePointCount(0, greeting.length()));
         System.out.println(greeting.charAt(1));
@@ -25,11 +25,11 @@ public class STRING {
         System.out.println(index);
         System.out.println(greeting.codePointAt(index));
         /*
-        *StringBuilder builder = new StringBuilder();
-        *builder.append(greeting);
-        *builder.append(s);
-        *String ch = builder.toString();
-        *System.out.println(ch);
+         *StringBuilder builder = new StringBuilder();
+         *builder.append(greeting);
+         *builder.append(s);
+         *String ch = builder.toString();
+         *System.out.println(ch);
          */
 
     }
