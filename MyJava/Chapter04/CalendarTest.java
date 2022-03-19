@@ -11,14 +11,14 @@ public class CalendarTest {
         DayOfWeek weekday = date.getDayOfWeek();
         int value = weekday.getValue();
 
-        System.out.println("Mon Tue Wed Thu Fri Sat Sun");
+        System.out.println("Mon  Tue  Wed  Thu  Fri  Sat  Sun");
         for (int i = 0; i < value; i++) {
             System.out.print("  ");
         }
         while (date.getMonthValue() == month) {
             System.out.printf("%3d", date.getDayOfMonth());
             if (date.getDayOfMonth() == today)
-                System.out.print("*");
+                System.out.print("* ");
             else
                 System.out.print("  ");
             date = date.plusDays(1);
