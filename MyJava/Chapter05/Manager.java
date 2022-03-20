@@ -19,4 +19,8 @@ public class Manager extends Employee {
     public String getDescription() {
         return "Manager";
     }
+
+    public String toString() {
+        return super.toString() + "[bonus=" + bonus + "]";
+    }
 }

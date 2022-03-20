@@ -11,7 +11,7 @@ public class ManagerTest {
         }
 
         for (Employee e : staff) {
-            System.out.println("id=" + e.getId() + ",name=" + e.getName() + ",salary=" + e.getSalary() + ",Date=" + e.getHireDay());
+            System.out.println(e.toString());
         }
         if (staff[1].equals(staff[2])) {
             System.out.println("There are same name");

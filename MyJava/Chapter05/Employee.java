@@ -1,10 +1,10 @@
 import java.time.LocalDate;
 
-public class Employee extends Person{
-    private double salary;
+public class Employee extends Person {
     private static int nextId = 1;
     private final int id;
     private final LocalDate hireDay;
+    private double salary;
 
 
     public Employee(String n, double s, int year, int month, int day) {
@@ -34,6 +34,11 @@ public class Employee extends Person{
     @Override
     public String getDescription() {
         return "Employee";
+    }
+
+    @Override
+    public String toString() {
+        return "[id=" + getId() + ",name=" + getName() + ",salary=" + getSalary() + ",Date=" + getHireDay() + "]";
     }
 
     public void raiseSalary(double byPercent) {
