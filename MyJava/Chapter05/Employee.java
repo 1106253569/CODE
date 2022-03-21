@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Employee extends Person {
+public class Employee extends Person implements Comparable<Employee> {
     private static int nextId = 1;
     private final int id;
     private final LocalDate hireDay;
@@ -49,4 +49,14 @@ public class Employee extends Person {
     public boolean equals(Employee other) {
         return getName().equals(other.getName());
     }
+
+    @Override
+    //接口
+    public int compareTo(Employee other) {
+        return Double.compare(salary, other.salary);
+    }
+
+
 }
+
+
