@@ -1,14 +1,18 @@
 public class Dishes {
     private final String name;
-    private final double price;
+    private double price;
 
     public Dishes(String n, double p) {
         name = n;
-        price = p;
+        setPrice(p);
     }
 
     public double getPrice() {
         return price;
+    }
+
+    public void setPrice(double p) {
+        price = p;
     }
 
     public String getName() {

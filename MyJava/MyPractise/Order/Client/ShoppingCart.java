@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Scanner;
 
 public class ShoppingCart {
     private final Menu foodList;
@@ -22,18 +24,25 @@ public class ShoppingCart {
     }
 
     public void ShowAdded() {
+        System.out.println("---------------------------\nSHOPPING CART");
         if (added == null)
-            System.out.println("Nothing");
-        else
+            System.out.println("---------------------------\nCart is empty");
+        else {
             for (var dishes : added) {
+                System.out.println("---------------------------");
                 System.out.println("name: " + dishes.getName() + "\tnumber= " + dishes.getNumber() + "\nTotal price(of a single product)=" + dishes.getTotalPrice());
             }
-        System.out.println("Total price=" + getTotal());
+            System.out.println("---------------------------");
+            System.out.println("Total price=" + getTotal());
+        }
+        System.out.println("---------------------------");
+
     }
 
     public void add(String want, int n) {
-        if (n > 0 && foodList.contains(want)) {
+        if (added == null)
             added = new ArrayList<>();
+        if (n > 0 && foodList.contains(want)) {
             added.add(new AddDishes(foodList.DishesInformation(want), n));
         } else {
             System.out.println("Added fail, please enter right number or dishes!");
@@ -47,7 +56,20 @@ public class ShoppingCart {
     public void showMenu() {
         foodList.showMenu();
     }
+
+    public void emptyCart() {
+        System.out.print("Are you sure you want to empty the cart?(Y or N");
+        Scanner in = new Scanner(System.in);
+        String i = in.next();
+        if (Objects.equals(i, "Y") || Objects.equals(i, "y")) {
+            added.clear();
+            System.out.println("Success");
+        } else {
+            System.out.println("Clear fail! Please try again.");
+        }
+    }
 }
+
 
 class AddDishes extends Dishes {
     private final int number;
@@ -74,43 +96,5 @@ class AddDishes extends Dishes {
 
     public int getNumber() {
         return number;
-    }
-}
-
-class Menu {
-    private final ArrayList<Dishes> menu;
-
-    public Menu() {
-        menu = new ArrayList<>();
-    }
-
-    public Menu(ArrayList<Dishes> m) {
-        menu = new ArrayList<>();
-        menu.addAll(m);
-    }
-
-    public void showMenu() {
-        for (var m : menu) {
-            System.out.println("name: " + m.getName() + "\tPrice=" + m.getPrice());
-        }
-    }
-
-    public void add(Dishes d) {
-        menu.add(d);
-    }
-
-    public boolean contains(String name) {
-        for (var m : menu) {
-            if (name.equals(m.getName()))
-                return true;
-        }
-        return false;
-    }
-
-    public Dishes DishesInformation(String name) {
-        for (var m : menu)
-            if (name.equals(m.getName()))
-                return m;
-        return null;
     }
 }

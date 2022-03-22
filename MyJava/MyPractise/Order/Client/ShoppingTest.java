@@ -17,10 +17,8 @@ public class ShoppingTest {
             i = in.next();
         }
         var cart = new ShoppingCart(m);
-        cart.showMenu();
         cart.addMenu(new Dishes("egg", 5));
         cart.showMenu();
-        cart.ShowAdded();
         System.out.println("Please select the food you want!");
         i = "Y";
         while (Objects.equals(i, "Y") || Objects.equals(i, "y")) {
@@ -33,5 +31,6 @@ public class ShoppingTest {
             i = in.next();
         }
         cart.ShowAdded();
+        cart.emptyCart();
     }
 }
