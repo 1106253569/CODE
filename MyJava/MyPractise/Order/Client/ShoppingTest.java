@@ -6,7 +6,9 @@ public class ShoppingTest {
     public static void main(String[] args) {
         var m = new ArrayList<Dishes>();
         Scanner in = new Scanner(System.in);
+        System.out.println("Please initialize a menu");
         String i = "Y";
+        //初始化菜单
         while (Objects.equals(i, "Y") || Objects.equals(i, "y")) {
             System.out.print("please enter dish's name: ");
             String dishName = in.next();
@@ -16,21 +18,55 @@ public class ShoppingTest {
             System.out.print("Do you want to continue?(Y or N)");
             i = in.next();
         }
+        //初始化购物车
         var cart = new ShoppingCart(m);
-        cart.addMenu(new Dishes("egg", 5));
-        cart.showMenu();
-        System.out.println("Please select the food you want!");
-        i = "Y";
-        while (Objects.equals(i, "Y") || Objects.equals(i, "y")) {
-            System.out.print("please enter dish's name: ");
-            String dishName = in.next();
-            System.out.print("please enter number: ");
-            int dishNumber = in.nextInt();
-            cart.add(dishName, dishNumber);
-            System.out.print("Do you want to continue?(Y or N)");
-            i = in.next();
+        String close = "1";
+        while (!close.equals("0")) {
+            behavioralCues.selectMode();
+            close = in.next();
+            String choose = "1";
+            switch (close) {
+                case "1" -> {
+                    while (!choose.equals("0")) {
+                        behavioralCues.merchantActionTip();
+                        choose = in.next();
+                        merchantAction(cart, choose);
+                    }
+                }
+                case "2" -> {
+                    while (!choose.equals("0")) {
+                        behavioralCues.clientActionTip();
+                        choose = in.next();
+                        clientAction(cart, choose);
+                    }
+                }
+                default -> {
+                    if (close.equals("0"))
+                        System.out.println("System close!");
+                    else
+                        System.out.println("Please enter right word");
+                }
+            }
         }
-        cart.ShowAdded();
-        cart.emptyCart();
     }
+
+    public static void clientAction(ShoppingCart cart, String i) {
+        switch (i) {
+            case "1" -> cart.showMenu();
+            case "2" -> cart.showAdded();
+            case "3" -> cart.add();
+            case "4" -> cart.emptyCart();
+        }
+    }
+
+    public static void merchantAction(ShoppingCart cart, String i) {
+        switch (i) {
+            case "1" -> cart.showMenu();
+            case "2" -> cart.addMenu();
+        }
+    }
+
 }
+
+
+

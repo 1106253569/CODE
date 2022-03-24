@@ -1,95 +1,93 @@
+/*
+实 验 二 类的定义及使用
+任务描述：
+1、设计一个计数器类（Counter)，其数据成员包括计数器的值；成员函数包括：
+(1)初始化（要求使用带默认参数的构造函数实现，默认参数值设为6）；
+(2)计数器加1；
+(3)计数器减1；
+(4)显示计数器的值。
+2、设计一个时间类（Time) ，其数据成员包括时，分，秒；成员函数包括：
+(1)加一秒；
+(2)按24小时制显示时间universialhour()；
+(3)按12小时制显示时间normalshow()。
+
+要求分别使用有参数，无参数的构造函数实现数据成员的初始化。
+一、实验目的和要求
+1、 熟悉类的定义及数据成员和成员函数的设计，了解面向对象程序设计思路。
+2 、了解成员函数的定义方式。
+二、项目拟实现的主要源代码（设计每个类的成员以及内部函数，完成代码）
+1、设计一个计数器类（Counter)
+*/
+
+#include <Windows.h>
 #include <iostream>
-#include <type_traits>
-template<typename T>
-class Foo
+using namespace std;
+class Time
 {
-public:
-    static std::size_t count() { return ctr; }
 private:
-    static std::size_t ctr;
+    int hour;
+    int second;
+    int minute;
+
+public:
+    Time(int h, int m, int s)
+    {
+        hour = h;
+        second = s;
+        minute = m;
+    }
+    void add();
+    void normalShow();
+    void universialhour();
 };
 
-template <typename T>
-size_t Foo<T>::ctr = 0;
-
-template<typename T>
-typename T::value_type top(const T& c)
+void Time::add()
 {
-    if(!c.empty())
-        return c.back(); 
-        else
-            return typename T::value_type();
-}
-
-template<typename T,typename F=std::less<T>>
-int compare(const T&v1,const T&v2,F f=F())
-{
-    if(f(v1,v2))
-        return -1;
-        else if(f(v2,v1))
-            return 1;
-        return 0;
-}
-
-template <typename T>
-T fobj(T, T);
-
-template <typename T>
-T fref(const T &, const T &);
-
-template <typename T>
-std::ostream& print(std::ostream& os,const T &obj)
-{
-    return os << obj;
-}
-
-template <typename T1, typename T2, typename T3>
-T1 sum(T2 &, T3 &);
-
-template <typename T>
-auto fcn(T beg,T end)->decltype(*beg)
-{
-    return *beg;
-}
-
-template<typename T>
-void f3(T&& val)
-{
-    T t = val;
-    t = fcn(t);
-    if(val==t)
+    second += 1;
+    if (second >= 60)
     {
-
+        second = 0;
+        minute += 1;
+    }
+    if (minute >= 60)
+    {
+        hour++;
+        minute = 0;
+    }
+    if (hour >= 24)
+    {
+        hour -= 24;
     }
 }
 
-template<typename T>
-typename std::remove_reference<T>::type&& move(T&& t)
+void Time::universialhour()
 {
-    return std::static_cast<typename std::remove_reference<T>::type &&>(t);
+    std::cout << hour << ":" << minute << ":" << second << std::endl;
 }
 
-template<typename F,typename T1,typename T2>
-void flip1(F f,T1 t1,T2 t2)
+void Time::normalShow()
 {
-    f(t2, t1);
+    if (hour >= 12)
+    {
+        int temp = hour - 12;
+        cout << temp << ":" << minute << ":" << second << "PM"
+             << "\n";
+    }
+    else
+        cout << hour << ":" << minute << ":" << second << "AM"
+             << "\n";
 }
-void f(int v1,int v2)
-{
-    std::cout << v1 << " " << ++v2 << "\n";
-}
-
-template<typename Type>
-Type intermediary(Type&& arg)
-{
-    finalFcn(std::forward<Type>(arg));
-}
-
 int main()
 {
-    Foo<int> fi;
-    auto ct = Foo<int>::count();
-    ct = fi.count();
-    std::cout << ct;
+    Time t1(23, 59, 0);
+    Time t2(23, 59, 0);
+    for (int i = 0; i < 60; i++)
+    {
+        t1.add();
+        t2.add();
+        t1.normalShow();
+        t2.universialhour();
+    }
+
     return 0;
 }

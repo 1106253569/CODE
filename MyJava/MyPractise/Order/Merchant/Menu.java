@@ -30,7 +30,7 @@ public class Menu {
         if (!contains(d.getName()))
             menu.add(d);
         else {
-            System.out.println("This product already exists, do you want to overwrite the original information?(Y or N) ");
+            System.out.println("<" + d.getName() + "> already exists, do you want to overwrite the original information?(Y or N) ");
             Scanner in = new Scanner(System.in);
             String i = in.next();
             if (Objects.equals(i, "Y") || Objects.equals(i, "y")) {
