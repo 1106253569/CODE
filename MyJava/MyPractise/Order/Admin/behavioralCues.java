@@ -10,7 +10,7 @@ public class behavioralCues {
 
     public static void merchantActionTip() {
         System.out.println("---------------------------");
-        System.out.println("Back to select mode");
+        System.out.println("Please select a merchant action");
         System.out.println("0.Back to select mode");
         System.out.println("1.Show menu");
         System.out.println("2.Add a dishes or a list");

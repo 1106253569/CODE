@@ -66,11 +66,22 @@ public class ShoppingCart {
     public void addOneToCart(String want, int n) {
         if (added == null)
             added = new ArrayList<>();
+        boolean isExist = false;
         if (n > 0 && foodList.contains(want)) {
-            added.add(new AddDishes(foodList.DishesInformation(want), n));
+            for (var one : added) {
+                if (want.equals(one.getName())) {
+                    isExist = true;
+                    n += one.getNumber();
+                    one.setNumber(n);
+                }
+            }
+            //存在就不再添加新的项
+            if (!isExist)
+                added.add(new AddDishes(foodList.DishesInformation(want), n));
         } else {
             System.out.println("Added fail, please enter right number or dishes!");
         }
+
     }
 
 
@@ -125,11 +136,11 @@ public class ShoppingCart {
 
 
 class AddDishes extends Dishes {
-    private final int number;
+    private int number;
 
     public AddDishes(Dishes want, int i) {
         super(want.getName(), want.getPrice());
-        number = i;
+        setNumber(i);
     }
 
     public double getTotalPrice() {
@@ -149,5 +160,9 @@ class AddDishes extends Dishes {
 
     public int getNumber() {
         return number;
+    }
+
+    public void setNumber(int i) {
+        number = i;
     }
 }

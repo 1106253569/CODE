@@ -50,7 +50,7 @@ public class ShoppingTest {
         }
     }
 
-    public static void clientAction(ShoppingCart cart, String i) {
+    private static void clientAction(ShoppingCart cart, String i) {
         switch (i) {
             case "1" -> cart.showMenu();
             case "2" -> cart.showAdded();
@@ -59,7 +59,7 @@ public class ShoppingTest {
         }
     }
 
-    public static void merchantAction(ShoppingCart cart, String i) {
+    private static void merchantAction(ShoppingCart cart, String i) {
         switch (i) {
             case "1" -> cart.showMenu();
             case "2" -> cart.addMenu();
