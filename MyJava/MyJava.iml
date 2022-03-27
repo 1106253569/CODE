@@ -11,6 +11,7 @@
       <sourceFolder url="file://$MODULE_DIR$/MyPractise/Order/Merchant" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Chapter07" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/MyPractise/Order/Admin" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Chapter08" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

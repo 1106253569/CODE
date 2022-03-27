@@ -24,9 +24,11 @@ public class MyAnimation {
                 int n = in.nextInt();
                 if (n < 100)
                     throw new FileNotFoundException();
+
             }
             i++;
         }
+        assert i >= 101 : "i>=101";
         return "1";
     }
 }

@@ -54,7 +54,7 @@ public class ShoppingCart {
                 i = in.next();
             }
         } catch (InputMismatchException e) {
-            System.out.println("Added fail, please enter right number or dishes!");
+            System.out.println("Added fail, please enter right number or name!");
             System.out.print("Do you want to continue?(Y or N)");
             Scanner in = new Scanner(System.in);
             String i = in.next();
@@ -111,25 +111,34 @@ public class ShoppingCart {
     }
 
     public void addMenu() {
-        var m1 = new ArrayList<Dishes>();
-        String i = "Y";
-        Scanner in = new Scanner(System.in);
-        while (Objects.equals(i, "Y") || Objects.equals(i, "y")) {
-            System.out.print("please enter dish's name: ");
-            String dishName = in.next();
-            System.out.print("please enter dish's price: ");
-            double dishPrice = in.nextInt();
-            m1.add(new Dishes(dishName, dishPrice));
-            System.out.print("Do you want to continue?(Y or N)");
-            i = in.next();
-        }
-        if (!m1.isEmpty()) {
-            for (var d : m1) {
-                this.addOneToMenu(d);
+        try {
+            var m1 = new ArrayList<Dishes>();
+            String i = "Y";
+            Scanner in = new Scanner(System.in);
+            while (Objects.equals(i, "Y") || Objects.equals(i, "y")) {
+                System.out.print("please enter dish's name: ");
+                String dishName = in.next();
+                System.out.print("please enter dish's price: ");
+                double dishPrice = in.nextInt();
+                m1.add(new Dishes(dishName, dishPrice));
+                System.out.print("Do you want to continue?(Y or N)");
+                i = in.next();
             }
-            System.out.println("Added success");
-        } else {
-            System.out.println("No dishes added!");
+            if (!m1.isEmpty()) {
+                for (var d : m1) {
+                    this.addOneToMenu(d);
+                }
+                System.out.println("Added success");
+            } else {
+                System.out.println("No dishes added!");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Added fail, please enter right number or dishes!");
+            System.out.print("Do you want to continue?(Y or N)");
+            Scanner in = new Scanner(System.in);
+            String i = in.next();
+            if (i.equals("y") || i.equals("Y"))
+                this.addMenu();
         }
     }
 }

@@ -52,20 +52,43 @@ public class ShoppingTest {
 
     private static void clientAction(ShoppingCart cart, String i) {
         switch (i) {
-            case "1" -> cart.showMenu();
-            case "2" -> cart.showAdded();
-            case "3" -> cart.add();
-            case "4" -> cart.emptyCart();
+            case "1" -> {
+                cart.showMenu();
+                anyKeyToExit();
+            }
+            case "2" -> {
+                cart.showAdded();
+                anyKeyToExit();
+            }
+            case "3" -> {
+                cart.add();
+                anyKeyToExit();
+            }
+            case "4" -> {
+                cart.emptyCart();
+                anyKeyToExit();
+            }
         }
     }
 
     private static void merchantAction(ShoppingCart cart, String i) {
         switch (i) {
-            case "1" -> cart.showMenu();
-            case "2" -> cart.addMenu();
+            case "1" -> {
+                cart.showMenu();
+                anyKeyToExit();
+            }
+            case "2" -> {
+                cart.addMenu();
+                anyKeyToExit();
+            }
         }
     }
 
+    private static void anyKeyToExit() {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Press anything to exit");
+        in.next();
+    }
 }
 
 
