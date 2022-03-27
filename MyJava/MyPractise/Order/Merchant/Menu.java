@@ -27,6 +27,10 @@ public class Menu {
     }
 
     public void add(Dishes d) {
+        if (d.getName().length() == 0) {
+            System.out.println("uname, please retry!");
+            return;
+        }
         if (!contains(d.getName()))
             menu.add(d);
         else {
@@ -42,12 +46,7 @@ public class Menu {
         }
     }
 
-    public void ModifyPrice(String name, double price) {
-        for (var m : menu) {
-            if (name.equals(m.getName()))
-                m.setPrice(price);
-        }
-    }
+
 
     public boolean contains(String name) {
         for (var m : menu) {
@@ -62,6 +61,31 @@ public class Menu {
             if (name.equals(m.getName()))
                 return m;
         return null;
+    }
+
+    public void removeDishes(String name) {
+        if (!contains(name))
+            System.out.println("<" + name + "> no exist, remove failed");
+        else {
+            menu.removeIf(m -> m.getName().equals(name));
+            System.out.println("<" + name + "> remove success!");
+        }
+    }
+
+    public void setPrice(String name, double price) {
+        if (!contains(name)) {
+            System.out.println("<" + name + "> no exist, change failed");
+        } else {
+            ModifyPrice(name, price);
+            System.out.println("Change success");
+        }
+    }
+
+    private void ModifyPrice(String name, double price) {
+        for (var m : menu) {
+            if (name.equals(m.getName()))
+                m.setPrice(price);
+        }
     }
 }
 

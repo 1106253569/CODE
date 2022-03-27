@@ -14,7 +14,7 @@ public class behavioralCues {
         System.out.println("0.Back to select mode");
         System.out.println("1.Show menu");
         System.out.println("2.Add a dishes or a list");
-        System.out.println("3.Set dishes' price");
+        System.out.println("3.Set dish's price");
         System.out.println("4.Delete what you don't want");
         System.out.println("---------------------------");
     }

@@ -15,14 +15,13 @@ public class ShoppingCart {
             foodList = new Menu();
     }
 
-    public double getTotal() {
-        double total = 0.0;
-        if (added != null)
-            for (var one : added) {
-                total += one.getPrice() * one.getNumber();
-            }
-        return total;
+    public void showMenu() {
+        foodList.showMenu();
     }
+
+    /**
+     * Added option
+     */
 
     public void showAdded() {
         System.out.println("---------------------------\nSHOPPING CART");
@@ -31,7 +30,7 @@ public class ShoppingCart {
         else {
             for (var dishes : added) {
                 System.out.println("---------------------------");
-                System.out.println("name: " + dishes.getName() + "\tnumber= " + dishes.getNumber() + "\nTotal price(of a single product)=" + dishes.getTotalPrice());
+                System.out.println("name: " + dishes.getName() + "    \tnumber= " + dishes.getNumber() + "\nTotal price(of a single product)=" + dishes.getTotalPrice());
             }
             System.out.println("---------------------------");
             System.out.println("Total price=" + getTotal());
@@ -63,7 +62,16 @@ public class ShoppingCart {
         }
     }
 
-    public void addOneToCart(String want, int n) {
+    private double getTotal() {
+        double total = 0.0;
+        if (added != null)
+            for (var one : added) {
+                total += one.getPrice() * one.getNumber();
+            }
+        return total;
+    }
+
+    private void addOneToCart(String want, int n) {
         if (added == null)
             added = new ArrayList<>();
         boolean isExist = false;
@@ -71,7 +79,19 @@ public class ShoppingCart {
             for (var one : added) {
                 if (want.equals(one.getName())) {
                     isExist = true;
-                    n += one.getNumber();
+                    Scanner in = new Scanner(System.in);
+                    System.out.print("<" + want + "> is exist\n 1.Add up or 2.Overwrite, please enter: ");
+                    String i;
+                    do {
+                        i = in.next();
+                        if (i.equals("1")) {
+                            n += one.getNumber();
+                            System.out.println("Add up success");
+                        } else if (i.equals("2"))
+                            System.out.println("Overwrite success");
+                        else
+                            System.out.print("please enter right choose\n 1.Add up or 2.Overwrite");
+                    } while (!i.equals("1") && !i.equals("2"));
                     one.setNumber(n);
                 }
             }
@@ -81,13 +101,12 @@ public class ShoppingCart {
         } else {
             System.out.println("Added fail, please enter right number or dishes!");
         }
-
     }
 
 
-    public void showMenu() {
-        foodList.showMenu();
-    }
+    /**
+     * Menu option
+     */
 
     public void emptyCart() {
         if (added.isEmpty()) {
@@ -106,31 +125,18 @@ public class ShoppingCart {
         this.showAdded();
     }
 
-    public void addOneToMenu(Dishes d) {
-        foodList.add(d);
-    }
-
     public void addMenu() {
         try {
-            var m1 = new ArrayList<Dishes>();
             String i = "Y";
             Scanner in = new Scanner(System.in);
             while (Objects.equals(i, "Y") || Objects.equals(i, "y")) {
                 System.out.print("please enter dish's name: ");
                 String dishName = in.next();
                 System.out.print("please enter dish's price: ");
-                double dishPrice = in.nextInt();
-                m1.add(new Dishes(dishName, dishPrice));
+                double dishPrice = in.nextDouble();
+                foodList.add(new Dishes(dishName, dishPrice));
                 System.out.print("Do you want to continue?(Y or N)");
                 i = in.next();
-            }
-            if (!m1.isEmpty()) {
-                for (var d : m1) {
-                    this.addOneToMenu(d);
-                }
-                System.out.println("Added success");
-            } else {
-                System.out.println("No dishes added!");
             }
         } catch (InputMismatchException e) {
             System.out.println("Added fail, please enter right number or dishes!");
@@ -139,6 +145,50 @@ public class ShoppingCart {
             String i = in.next();
             if (i.equals("y") || i.equals("Y"))
                 this.addMenu();
+        }
+    }
+
+    public void setPrice() {
+        try {
+            String i = "Y";
+            while (Objects.equals(i, "Y") || Objects.equals(i, "y")) {
+                Scanner in = new Scanner(System.in);
+                System.out.print("Enter the name of the dish you want to set the price for: ");
+                String dishName = in.next();
+                System.out.print("Please enter price: ");
+                double dishPrice = in.nextDouble();
+                foodList.setPrice(dishName, dishPrice);
+                System.out.print("Do you want to continue?(Y or N)");
+                i = in.next();
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Added fail, please enter right number or name!");
+            System.out.print("Do you want to continue?(Y or N)");
+            Scanner in = new Scanner(System.in);
+            String i = in.next();
+            if (i.equals("y") || i.equals("Y"))
+                this.addMenu();
+        }
+    }
+
+    public void removeMenuDishes() {
+        try {
+            String i = "Y";
+            Scanner in = new Scanner(System.in);
+            while (Objects.equals(i, "Y") || Objects.equals(i, "y")) {
+                System.out.print("please enter dish's name: ");
+                String dishName = in.next();
+                foodList.removeDishes(dishName);
+                System.out.print("Do you want to continue?(Y or N)");
+                i = in.next();
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Added fail, please enter right dish's name!");
+            System.out.print("Do you want to continue?(Y or N)");
+            Scanner in = new Scanner(System.in);
+            String i = in.next();
+            if (i.equals("y") || i.equals("Y"))
+                this.removeMenuDishes();
         }
     }
 }

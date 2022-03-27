@@ -1,25 +1,19 @@
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class ShoppingTest {
     public static void main(String[] args) {
-        var m = new ArrayList<Dishes>();
         Scanner in = new Scanner(System.in);
-        System.out.println("Please initialize a menu");
-        String i = "Y";
         //初始化菜单
-        while (Objects.equals(i, "Y") || Objects.equals(i, "y")) {
-            System.out.print("please enter dish's name: ");
-            String dishName = in.next();
-            System.out.print("please enter dish's price: ");
-            double dishPrice = in.nextInt();
-            m.add(new Dishes(dishName, dishPrice));
-            System.out.print("Do you want to continue?(Y or N)");
-            i = in.next();
-        }
+        var list = new ArrayList<Dishes>();
+        list.add(new Dishes("table fee", 2));
+        list.add(new Dishes("egg", 3));
+        list.add(new Dishes("water", 1.5));
+        list.add(new Dishes("meat", 10));
+        list.add(new Dishes("vegetable", 6));
+        list.add(new Dishes("paper", 1));
         //初始化购物车
-        var cart = new ShoppingCart(m);
+        var cart = new ShoppingCart(list);
         String close = "1";
         while (!close.equals("0")) {
             behavioralCues.selectMode();
@@ -50,6 +44,27 @@ public class ShoppingTest {
         }
     }
 
+    private static void merchantAction(ShoppingCart cart, String i) {
+        switch (i) {
+            case "1" -> {
+                cart.showMenu();
+                anyKeyToExit();
+            }
+            case "2" -> {
+                cart.addMenu();
+                anyKeyToExit();
+            }
+            case "3" -> {
+                cart.setPrice();
+                anyKeyToExit();
+            }
+            case "4" -> {
+                cart.removeMenuDishes();
+                anyKeyToExit();
+            }
+        }
+    }
+
     private static void clientAction(ShoppingCart cart, String i) {
         switch (i) {
             case "1" -> {
@@ -71,22 +86,10 @@ public class ShoppingTest {
         }
     }
 
-    private static void merchantAction(ShoppingCart cart, String i) {
-        switch (i) {
-            case "1" -> {
-                cart.showMenu();
-                anyKeyToExit();
-            }
-            case "2" -> {
-                cart.addMenu();
-                anyKeyToExit();
-            }
-        }
-    }
 
     private static void anyKeyToExit() {
         Scanner in = new Scanner(System.in);
-        System.out.print("Press anything to exit");
+        System.out.print("Enter '0' to exit");
         in.next();
     }
 }
