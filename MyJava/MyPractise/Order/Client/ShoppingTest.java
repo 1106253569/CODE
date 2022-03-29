@@ -72,14 +72,22 @@ public class ShoppingTest {
                 anyKeyToExit();
             }
             case "2" -> {
-                cart.showAdded();
+                cart.showAdded("2");
                 anyKeyToExit();
             }
             case "3" -> {
-                cart.add();
+                cart.showAdded("3");
                 anyKeyToExit();
             }
             case "4" -> {
+                cart.showAdded("4");
+                anyKeyToExit();
+            }
+            case "5" -> {
+                cart.add();
+                anyKeyToExit();
+            }
+            case "6" -> {
                 cart.emptyCart();
                 anyKeyToExit();
             }

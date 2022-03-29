@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class ShoppingCart {
     private final Menu foodList;
@@ -23,12 +20,20 @@ public class ShoppingCart {
      * Added option
      */
 
-    public void showAdded() {
+    public void showAdded(String s) {
         System.out.println("---------------------------\nSHOPPING CART");
         if (added == null || added.size() == 0)
             System.out.println("---------------------------\nCart is empty");
         else {
-            for (var dishes : added) {
+            var temp = added;
+
+            //按输入的s进行排序
+            switch (s) {
+                //s=="2"即默认输出
+                case "3" -> temp.sort(Comparator.comparingDouble(AddDishes::getTotalPrice));
+                case "4" -> temp.sort(Comparator.comparingDouble(AddDishes::getTotalPrice).reversed());
+            }
+            for (var dishes : temp) {
                 System.out.println("---------------------------");
                 System.out.println("name: " + dishes.getName() + "    \tnumber= " + dishes.getNumber() + "\nTotal price(of a single product)=" + dishes.getTotalPrice());
             }
@@ -36,7 +41,6 @@ public class ShoppingCart {
             System.out.println("Total price=" + getTotal());
         }
         System.out.println("---------------------------");
-
     }
 
     public void add() {
@@ -60,6 +64,23 @@ public class ShoppingCart {
             if (i.equals("y") || i.equals("Y"))
                 this.add();
         }
+    }
+
+    public void emptyCart() {
+        if (added.isEmpty()) {
+            System.out.println("Your cart is empty!");
+            return;
+        }
+        System.out.print("Are you sure you want to empty the cart?(Y or N)");
+        Scanner in = new Scanner(System.in);
+        String i = in.next();
+        if (i.equals("Y") || i.equals("y")) {
+            added.clear();
+            System.out.println("Success");
+        } else {
+            System.out.println("Clear fail! Please try again.");
+        }
+        this.showAdded("2");
     }
 
     private double getTotal() {
@@ -107,23 +128,6 @@ public class ShoppingCart {
     /**
      * Menu option
      */
-
-    public void emptyCart() {
-        if (added.isEmpty()) {
-            System.out.println("Your cart is empty!");
-            return;
-        }
-        System.out.print("Are you sure you want to empty the cart?(Y or N)");
-        Scanner in = new Scanner(System.in);
-        String i = in.next();
-        if (i.equals("Y") || i.equals("y")) {
-            added.clear();
-            System.out.println("Success");
-        } else {
-            System.out.println("Clear fail! Please try again.");
-        }
-        this.showAdded();
-    }
 
     public void addMenu() {
         try {
@@ -190,38 +194,5 @@ public class ShoppingCart {
             if (i.equals("y") || i.equals("Y"))
                 this.removeMenuDishes();
         }
-    }
-}
-
-
-class AddDishes extends Dishes {
-    private int number;
-
-    public AddDishes(Dishes want, int i) {
-        super(want.getName(), want.getPrice());
-        setNumber(i);
-    }
-
-    public double getTotalPrice() {
-        return super.getPrice() * number;
-    }
-
-    @Override
-    public String getName() {
-        return super.getName();
-    }
-
-    @Override
-    //If you want to get the total price, use getTotalPrice()
-    public double getPrice() {
-        return super.getPrice();
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int i) {
-        number = i;
     }
 }

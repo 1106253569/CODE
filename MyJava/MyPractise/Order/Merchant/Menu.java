@@ -47,7 +47,6 @@ public class Menu {
     }
 
 
-
     public boolean contains(String name) {
         for (var m : menu) {
             if (name.equals(m.getName()))

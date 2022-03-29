@@ -15,6 +15,14 @@ public class Employee extends Person implements Comparable<Employee> {
         hireDay = LocalDate.of(year, month, day);
     }
 
+    public Employee(String n) {
+        super(n);
+        salary = 0;
+        id = nextId;
+        nextId++;
+        hireDay = LocalDate.of(2000, 1, 1);
+    }
+
     public int getId() {
         return id;
     }
