@@ -13,6 +13,7 @@
       <sourceFolder url="file://$MODULE_DIR$/MyPractise/Order/Admin" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Chapter08" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Chapter09" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Chapter12" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
