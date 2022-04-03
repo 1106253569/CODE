@@ -22,16 +22,6 @@ public class CardDeck {
         Collections.shuffle(deck);
     }
 
-    public void showDeck() {
-        int i = 0;
-        for (var card : deck) {
-            System.out.print(card.toString());
-            ++i;
-            if (i % 17 == 0)
-                System.out.println();
-        }
-    }
-
     public ArrayList<Card> getDeck() {
         return deck;
     }

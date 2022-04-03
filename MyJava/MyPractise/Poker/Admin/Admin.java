@@ -8,7 +8,7 @@ public class Admin {
     public Admin() {
         var deck = new CardDeck();
         deck.shuffle();
-        playerList = new ArrayList<Player>();
+        playerList = new ArrayList<>();
         int i = 1;
         ArrayList<Card> group = new ArrayList<>();
         for (var card : deck.getDeck()) {

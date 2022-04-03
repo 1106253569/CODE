@@ -18,14 +18,19 @@ public class Card
         return color;
     }
 
-    public String toString() {
-        return "[" + color + "'" + numberName + "']\t";
+    public String getNumberName() {
+        return numberName;
     }
 
     public int getNumber() {
-        return number.get(numberName);
+        return number.get(getNumberName());
     }
 
+    public String toString() {
+        return "[" + getColor() + "'" + getNumberName() + "']\t";
+    }
+
+    @Override
     public int compareTo(Card other) {
         if (this.getNumber() > other.getNumber())
             return 1;
