@@ -14,6 +14,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Chapter08" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Chapter09" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Chapter12" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/MyPractise/Poker/Admin" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/MyPractise/Poker/Card" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
