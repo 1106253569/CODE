@@ -78,3 +78,4 @@ SELECT product_cd,open_branch_id,
     SUM(avail_balance) AS total
 FROM account
 GROUP BY product_cd, open_branch_id WITH ROLLUP;
+

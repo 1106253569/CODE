@@ -1,4 +1,5 @@
 import random
+
 number = int(input("please enter number(0~100):"))
 i = 1
 autonumber = random.randint(0, 9)

@@ -98,5 +98,8 @@ int main()
     int n = 0;
     std::cout << "please enter number:";
     std::cin >> n;
-    std::cout << intToRoman(n);
+    std::cout << intToRoman(n)<<'\n';
+    //按任意键退出
+    system("pause");
+    return 0;
 }

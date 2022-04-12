@@ -1,5 +1,5 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def koch_snowflake(order, scale=10):
@@ -13,6 +13,7 @@ def koch_snowflake(order, scale=10):
     scale : float
         The extent of the snowflake (edge length of the base triangle).
     """
+
     def _koch_snowflake_complex(order):
         if order == 0:
             # initial triangle

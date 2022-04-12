@@ -16,7 +16,7 @@
       "name": "C/C++: Build and debug active file",
       "type": "cppdbg",
       "request": "launch",
-      "program": "D:\\CODE\\C++\\exe\\${fileBasenameNoExtension}.exe",
+      "program": "D:\\CODE\\C++\\bin\\${fileBasenameNoExtension}.exe",
       "args": [],
       "stopAtEntry": false,
       "environment": [],
