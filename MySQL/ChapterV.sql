@@ -41,9 +41,14 @@ FROM account AS a
         WHERE name='Woburn Branch') AS b
     ON e.assigned_branch_id=b.branch_id;
     
-SELECT e1.fname,e1.lname,'VS' AS vs,e2.fname,e2.lname
-FROM employee AS e1 INNER JOIN employee AS e2
-    ON e1.emp_id < e2.emp_id
-WHERE e1.title='Teller' AND e2.title='Teller';
+SELECT 
+    e1.fname, e1.lname, 'VS' AS vs, e2.fname, e2.lname
+FROM
+    employee AS e1
+        INNER JOIN
+    employee AS e2 ON e1.emp_id < e2.emp_id
+WHERE
+    e1.title = 'Teller'
+        AND e2.title = 'Teller';
     
     

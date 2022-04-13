@@ -5,11 +5,11 @@ FROM dual;
 SHOW CHARACTER SET;
 */
 
-CREATE TABLE person(
+CREATE TABLE person (
     person_id SMALLINT UNSIGNED,
     fname VARCHAR(20),
     lname VARCHAR(20),
-    gender ENUM('M','F'),
+    gender ENUM('M', 'F'),
     birth_date DATE,
     street VARCHAR(30),
     city VARCHAR(20),

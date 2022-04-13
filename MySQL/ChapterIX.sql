@@ -86,16 +86,25 @@ SELECT 'Average Joes' AS name, 5000 AS low_limit, 9999.99 AS high_limit
 UNION ALL
 SELECT 'Heavy Hitters' AS name, 10000 AS low_limit,999999.99 AS high_limit;
 
-SELECT `groups`.name, COUNT(*) AS num_customers
-FROM (SELECT SUM(a.avail_balance) cust_balance
-    FROM account AS a INNER JOIN product p 
-        ON a.product_cd = p.product_cd
-    WHERE p.product_type_cd = 'ACCOUNT'
+SELECT 
+    `groups`.name, COUNT(*) AS num_customers
+FROM
+    (SELECT 
+        SUM(a.avail_balance) cust_balance
+    FROM
+        account AS a
+    INNER JOIN product p ON a.product_cd = p.product_cd
+    WHERE
+        p.product_type_cd = 'ACCOUNT'
     GROUP BY a.cust_id) AS cust_rollup
-    INNER JOIN (SELECT 'Small Fry' AS name,0 AS low_limit,4999.99 AS high_limit
-        UNION ALL
-        SELECT 'Average Joes' AS name, 5000 AS low_limit, 9999.99 AS high_limit
-        UNION ALL
-        SELECT 'Heavy Hitters' AS name, 10000 AS low_limit,999999.99 AS high_limit) AS `groups`
-    ON cust_rollup.cust_balance BETWEEN `groups`.low_limit AND `groups`.high_limit
+        INNER JOIN
+    (SELECT 'Small Fry' AS name, 0 AS low_limit, 4999.99 AS high_limit UNION ALL SELECT 
+        'Average Joes' AS name,
+            5000 AS low_limit,
+            9999.99 AS high_limit
+     UNION ALL SELECT 
+        'Heavy Hitters' AS name,
+            10000 AS low_limit,
+            999999.99 AS high_limit
+    ) AS `groups` ON cust_rollup.cust_balance BETWEEN `groups`.low_limit AND `groups`.high_limit
 GROUP BY `groups`.name;
