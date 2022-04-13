@@ -7,4 +7,4 @@ for line in fo:
     for s in ls:
         lns += "{}\t".format(s)
     print(ls)
-fo.close
+fo.close()
