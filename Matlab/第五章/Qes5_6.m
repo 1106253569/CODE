@@ -1,9 +1,0 @@
-clear;
-t=linspace(0,2*pi,100);
-x=2.*sin(t);
-y=3.*cos(t);
-z=trapz(x,y)
-dx=gradient(x,t);
-dy=gradient(y,t);
-f=sqrt(dx.^2+dy.^2);
-trapz(t,f)
