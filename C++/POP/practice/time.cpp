@@ -66,38 +66,24 @@ std::istream &operator>>(std::istream &is, Time &T)
         T = New_time;
     }
     else
-    {
         std::cout << "输入错误"
                   << "\n";
-    }
     return is;
 }
 std::ostream &operator<<(std::ostream &os, Time &T) //输出，在数字小于10时前置一个0
 {
     if (T.hour < 10)
-    {
         os << "0" << T.hour << ":";
-    }
     else
-    {
         os << T.hour << ":";
-    }
     if (T.minute < 10)
-    {
         os << "0" << T.minute << ":";
-    }
     else
-    {
         os << T.minute << ":";
-    }
     if (T.second < 10)
-    {
         os << "0" << T.second << "\n";
-    }
     else
-    {
         os << T.second << "\n";
-    }
     return os;
 }
 Time &Time::operator+=(const Time &T)
@@ -130,9 +116,7 @@ Time &Time::operator++()
         ++this->hour;
     }
     if (this->hour == 24)
-    {
         this->hour = 00;
-    }
     return *this;
 }
 Time Time::operator++(int)
@@ -156,9 +140,7 @@ Time &Time::operator--()
         --this->hour;
     }
     if (this->hour == 00)
-    {
         this->hour = 23;
-    }
     return *this;
 }
 Time Time::operator--(int)
