@@ -24,6 +24,8 @@ protected:
 	void sortBooks(); //排序图书 ok
     void typebook();//图书分类展示 ok 
 
+	void printAllBook();//分页打印图书
+
 private:
 	vector<book> bookList; //类似于book[]
 

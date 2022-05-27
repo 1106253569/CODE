@@ -108,16 +108,15 @@ int System::readBookInformation() //从文件读取数据，返回值只为了中断函数
 		infile >> temp;
 		if (checkId(temp)==0 && checkType(temp)==0)
 			bookList.push_back(temp);
-		i = bookList.size();
-		cout << temp;
+		i = bookList.size();	
 	}
+	cout << "add over" << endl;
 	infile.close();
 	
 	if (i == 0)
 		cout << "当前图书列表为空......" << endl;
 	else
-		cout << "数据读取完毕,总共有 " <<i <<" 本书" << endl;
-
+		printAllBook();
 	Sleep(3000);
 	system("cls");
 	return 1;
@@ -172,10 +171,7 @@ void System::addBook() //用链表的方式添加图书
 void System::showBook() //展示图书列表
 {
 	const vector<book>& bl = bookList;
-	cout << "编号\t\t\t书名\t\t\t作者\t\t\t出版社\t\t\t金额\t\t\t类别\t\t\t库存量" << endl;
-	for (book i : bl)
-		cout << i ;
-	cout << "一共有" << bl.size() << "本图书" << endl;
+	printAllBook();
 	system("pause");
 	cout << "正在返回" << endl;
 	Sleep(300);
@@ -557,6 +553,37 @@ void System::typebook() //类别打印
 	exit(0);
 }
 
+void System::printAllBook()
+{
+	cout << "编号\t\t\t书名\t\t\t作者\t\t\t出版社\t\t\t金额\t\t\t类别\t\t\t库存量" << endl;
+	char n = '1';
+	int page = 1;
+	for(book& b:bookList)
+	{
+		cout << b;
+		page++;
+		if (page%10==0)
+		{
+			cout << "第" <<page/10<< "页" << endl;
+			cout << "0:exit,1:next >> ";
+			cin >> n;
+			while (n != '1' && n != '0')
+			{
+				cout << "输入错误，请重新输入（0 或 1)：" << endl;
+				cin >> n;
+			}
+			if (n == '0')
+				break;
+			else
+			{
+				system("cls");
+				cout << "编号\t\t\t书名\t\t\t作者\t\t\t出版社\t\t\t金额\t\t\t类别\t\t\t库存量" << endl;
+			}
+		}
+	}
+	cout << "一共有" << bookList.size() << "本图书" << endl;
+}
+
 
 void System::typeSave() //按类保存
 {
@@ -697,3 +724,4 @@ void System::sortBooks() //按需排序图书
 	maintenance();
 	exit(0);
 }
+
