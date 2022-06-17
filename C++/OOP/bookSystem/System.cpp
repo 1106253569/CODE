@@ -703,16 +703,16 @@ void System::sortBooks() //∞¥–Ë≈≈–ÚÕº È
 	if(bl.size()!=0)
 		switch (n)
 		{
-		case(1):
+		case '1':
 			sort(bookList.begin(), bookList.end(), cmp1);
 			break;
-		case(2):
+		case '2':
 			sort(bookList.begin(), bookList.end(), cmp2);
 			break;
-		case(3):
+		case '3':
 			sort(bookList.begin(), bookList.end(), cmp3);
 			break;
-		case(4):
+		case '4':
 			sort(bookList.begin(), bookList.end(), cmp4);
 			break;
 		}

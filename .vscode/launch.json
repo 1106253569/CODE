@@ -32,6 +32,12 @@
         }
       ],
       "preLaunchTask": "C/C++: g++.exe build active file"
+    },
+    {
+      "type": "pwa-msedge",
+      "name": "http://127.0.0.1:3000/HTML/Practice/简历.html",
+      "request": "launch",
+      "url": "http://127.0.0.1:3000/HTML/Practice/简历.html"
     }
   ]
 }

@@ -82,5 +82,6 @@
     "map": "cpp",
     "set": "cpp"
   },
-  "workbench.colorTheme": "Atom One Light" // 格式化时调整include的顺序（按字母排序）
+  "workbench.colorTheme": "Atom One Light",
+  "livePreview.defaultPreviewPath": "/HTML/Practice/简历.html" // 格式化时调整include的顺序（按字母排序）
 }

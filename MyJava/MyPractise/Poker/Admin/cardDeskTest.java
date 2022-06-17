@@ -3,7 +3,5 @@ public class cardDeskTest {
         var admin = new Admin();
         admin.distributeLandlordRow();
         admin.showAllPlayerHand();
-
-
     }
 }
