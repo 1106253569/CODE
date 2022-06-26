@@ -1,16 +1,22 @@
-public class staff
+public class Staff
         extends People {
     String Id;
     String position;
 
-    public staff(String n, String s,String I,String p) {
-        super(n, s);
-        Id=I;
-        position=p;
+    public Staff(People newPeople, String I, String p) {
+        super(newPeople.getName(), newPeople.getSex());
+        Id = I;
+        position = p;
     }
 
-    public void setPosition(String newPosition){
-        position=newPosition;
+    public Staff(String n, String s, String I, String p) {
+        super(n, s);
+        Id = I;
+        position = p;
+    }
+
+    public void setPosition(String newPosition) {
+        position = newPosition;
     }
 
     public String getId() {
@@ -36,7 +42,7 @@ class People {
 
     public People(String n,String s) {
         name=n;
-        sex=s;
+        sex = s;
     }
 
     public String getName() {
@@ -45,5 +51,9 @@ class People {
 
     public String getSex() {
         return sex;
+    }
+
+    public String toString() {
+        return "Name: " + getName() + "\tSex: " + getSex();
     }
 }
