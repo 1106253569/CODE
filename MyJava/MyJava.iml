@@ -3,21 +3,23 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/Chapter03" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Chapter04" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Chapter05" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Chapter06" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/MyPractise/Order/Client" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/MyPractise/Order/Merchant" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Chapter07" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/MyPractise/Order/Admin" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Chapter08" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Chapter09" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Chapter12" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/MyPractise/Poker/Admin" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/MyPractise/Poker/Card" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/MyPractise/Official/System" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/MyPractise/Official/main" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Volume01/Chapter03" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Volume01/Chapter04" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Volume01/Chapter05" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Volume01/Chapter06" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Volume01/Chapter07" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Volume01/Chapter08" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Volume01/Chapter09" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Volume01/Chapter12" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Action/Chapter13" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Action/ChapterI" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
