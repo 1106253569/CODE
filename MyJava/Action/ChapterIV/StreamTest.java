@@ -53,8 +53,6 @@ public class StreamTest {
 
         //利用stream内部迭代
         List<String> name1 = menu.stream().map(Dish::getName).toList();
-
-
     }
 }
 
