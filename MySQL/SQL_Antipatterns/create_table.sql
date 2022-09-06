@@ -1,3 +1,5 @@
+CREATE DATABASE DataScience;
+
 USE datascience;
 
 CREATE TABLE
@@ -33,31 +35,35 @@ CREATE TABLE
         FOREIGN KEY (status) REFERENCES BugStatus(status)
     );
 
-CREATE TABLE Screenshots(
-    bug_id BIGINT UNSIGNED NOT NULL,
-    image_id BIGINT UNSIGNED NOT NULL,
-    screenshot_image BLOB,
-    caption VARCHAR(100),
-    PRIMARY KEY (bug_id,image_id),
-    FOREIGN KEY (bug_id) REFERENCES Bugs(bug_id)
-);
+CREATE TABLE
+    Screenshots(
+        bug_id BIGINT UNSIGNED NOT NULL,
+        image_id BIGINT UNSIGNED NOT NULL,
+        screenshot_image BLOB,
+        caption VARCHAR(100),
+        PRIMARY KEY (bug_id, image_id),
+        FOREIGN KEY (bug_id) REFERENCES Bugs(bug_id)
+    );
 
-CREATE TABLE Tags(
-    bug_id BIGINT UNSIGNED NOT NULL,
-    tag VARCHAR(20) NOT NULL,
-    PRIMARY KEY (bug_id,tag),
-    FOREIGN KEY(bug_id) REFERENCES Bugs(bug_id)
-);
+CREATE TABLE
+    Tags(
+        bug_id BIGINT UNSIGNED NOT NULL,
+        tag VARCHAR(20) NOT NULL,
+        PRIMARY KEY (bug_id, tag),
+        FOREIGN KEY(bug_id) REFERENCES Bugs(bug_id)
+    );
 
-CREATE TABLE Products(
-    product_id SERIAL PRIMARY KEY,
-    product_name VARCHAR(50)
-);
+CREATE TABLE
+    Products(
+        product_id SERIAL PRIMARY KEY,
+        product_name VARCHAR(50)
+    );
 
-CREATE TABLE BugsProducts(
-    bug_id BIGINT UNSIGNED NOT NULL,
-    product_id BIGINT UNSIGNED NOT NULL,
-    PRIMARY KEY (bug_id,product_id),
-    FOREIGN KEY (bug_id) REFERENCES Bugs(bug_id),
-    FOREIGN KEY (product_id) REFERENCES Products(product_id)
-);
+CREATE TABLE
+    BugsProducts(
+        bug_id BIGINT UNSIGNED NOT NULL,
+        product_id BIGINT UNSIGNED NOT NULL,
+        PRIMARY KEY (bug_id, product_id),
+        FOREIGN KEY (bug_id) REFERENCES Bugs(bug_id),
+        FOREIGN KEY (product_id) REFERENCES Products(product_id)
+    );
