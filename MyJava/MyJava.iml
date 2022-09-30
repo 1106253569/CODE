@@ -23,6 +23,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Action/ChapterII" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Action/ChapterIII" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Action/ChapterIV" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/.idea/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -30,6 +31,15 @@
       <library>
         <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/annotations/20.1.0/annotations-20.1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Program Files/Java/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
