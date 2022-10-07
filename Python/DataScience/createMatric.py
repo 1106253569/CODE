@@ -10,13 +10,13 @@ def direct(A, B):
     C = np.matmul(A, B)
     end_t = datetime.datetime.now()
     elapsed_sec = (end_t - start_t).total_seconds()
-    print("直接计算共消耗: " + "{:.2f}".format(elapsed_sec) + " 秒")
+    print("直接计算 共消耗: " + "{:.2f}".format(elapsed_sec) + " 秒")
     return C
 
 
 if __name__ == '__main__':
-    x = 2000
-    y = 4000
+    x = 2500
+    y = 5000
     A = np.random.randint(0, 10, x * y)
     A = A.reshape(x, y)
     B = np.random.randint(0, 10, x * y)
@@ -46,16 +46,20 @@ if __name__ == '__main__':
     for params in result:
         C_[i * 10:i * 10 + 10, :] = params.get()
         i += 1
-   # pool = Pool(4)
-   # print("创建进程池进行文件存储")
-   # pool.apply_async(np.savetxt, ['A.txt', A])
-   # pool.apply_async(np.savetxt, ['B.txt', B])
-   # pool.apply_async(np.savetxt, ['C_.txt', C_])
-   # pool.close()
-   # pool.join()
-   # print("A,B,C_矩阵已存储完毕")
+    pool = Pool(4)
+    start_t=datetime.datetime.now()
+    print("创建进程池进行文件存储")
+    pool.apply_async(np.savetxt, [r'Document\A.txt', A, '%4d'])
+    pool.apply_async(np.savetxt, [r'Document\B.txt', B, '%4d'])
+    pool.apply_async(np.savetxt, [r'Document\C_.txt', C_, '%4d'])
+    pool.close()
+    pool.join()
+    print("A,B,C_矩阵已存储完毕")
+    end_t = datetime.datetime.now()
+    elapsed_sec = (end_t - start_t).total_seconds()
+    print("文件储存 共消耗: " + "{:.2f}".format(elapsed_sec) + " 秒")
     del C_
 
     C = direct(A, B)
     print(np.size(C))
-  #  np.savetxt('C.txt', C)
+    np.savetxt(r'Document\C.txt', C,fmt='%4d')
