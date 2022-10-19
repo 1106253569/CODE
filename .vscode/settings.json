@@ -83,5 +83,6 @@
     "set": "cpp"
   },
   "workbench.colorTheme": "Atom One Light",
-  "livePreview.defaultPreviewPath": "/HTML/Practice/简历.html" // 格式化时调整include的顺序（按字母排序）
+  "livePreview.defaultPreviewPath": "/HTML/Practice/简历.html",
+  "python.analysis.typeCheckingMode": "basic" // 格式化时调整include的顺序（按字母排序）
 }

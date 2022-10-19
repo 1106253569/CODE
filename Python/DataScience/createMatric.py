@@ -22,7 +22,7 @@ if __name__ == '__main__':
     B = np.random.randint(0, 10, x * y)
     B = B.reshape(y, x)
     print("矩阵A,B生成完毕")
-    num_cores = int(cpu_count())
+    num_cores = int(cpu_count())+1
     print("本地计算机有: " + str(cpu_count()) + " 核心")
     pool = Pool(num_cores)
     print("创建进程池完毕")
@@ -33,8 +33,8 @@ if __name__ == '__main__':
     C_ = C_.reshape(x, x)
     steps = 10
     result = [
-        pool.apply_async(np.matmul, [A[i:i + 10, :], B])
-        for i in range(0, np.size(A, axis=0), 10)
+        pool.apply_async(np.matmul, [A[i:i + steps, :], B])
+        for i in range(0, np.size(A, axis=0), steps)
     ]
     pool.close()
     pool.join()
@@ -44,8 +44,9 @@ if __name__ == '__main__':
 
     i = 0
     for params in result:
-        C_[i * 10:i * 10 + 10, :] = params.get()
+        C_[i * 10:i * 10 + steps, :] = params.get()
         i += 1
+    
     pool = Pool(4)
     start_t=datetime.datetime.now()
     print("创建进程池进行文件存储")
@@ -63,3 +64,19 @@ if __name__ == '__main__':
     C = direct(A, B)
     print(np.size(C))
     np.savetxt(r'Document\C.txt', C,fmt='%4d')
+    
+    pool = Pool(num_cores)
+    start_t = datetime.datetime.now()
+    print("正在进行并行计算")
+    C_ = np.zeros(x * x)
+    C_ = C_.reshape(x, x)
+    steps = 1
+    result = [
+        pool.apply_async(np.matmul, [A[i:i + steps, :], B])
+        for i in range(0, np.size(A, axis=0), steps)
+    ]
+    pool.close()
+    pool.join()
+    end_t = datetime.datetime.now()
+    elapsed_sec = (end_t - start_t).total_seconds()
+    print("多进程计算 共消耗: " + "{:.2f}".format(elapsed_sec) + " 秒")
