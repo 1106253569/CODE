@@ -12,7 +12,7 @@ void initstack(Sq_stack &S)  //初始化
 {
     S.base = new SElemType[maxsize];
     if(!S.base)
-        exit(OVERFLOW); 
+        exit(1); 
         /*exit是c++程序的退出函数，声明为void exit(int value)
         其功能是退出当前的程序，并将参数value返回主调进程
         OVERFLOW为math.h的一个宏定义，其值为3。
