@@ -1,22 +1,20 @@
-x <- c(20, 29, 30, 40, 60, 120)
-y <- c(4.35, 4.18, 4.17, 4.08, 4.00, 3.92)
-print(approx(x, y, 43.2))
+library(Matrix)
+A <- matrix(c(4, 2, 0, 2, 2, 10, 12, 1, 0, 12, 17, 2, 2, 1, 2, 9), nrow = 4)
+b <- c(2, -3, 4, 1)
+X <- solve(A, b)
+X
+lu <- expand(lu(A))
+lu
+chol <- chol(A)
+chol
 
-fx <- function(x) {
-    (x + 2) / sqrt(1 + 2 * x)
-}
-a <- 0
-b <- 4
-n <- 1
-h<-(b-a)/n
-xi <- seq(from = a, to = b, by = h)
-xis <- xi[-c(1, length(xi))]
-Tn<--h/2*(fx(a)+2*(sum(fx(xis)))+fx(b))
-print(Tn)
-n <- 4
-h <- (b - a) / n
-xi <- seq(from = a, to = b, by = h)
-xis <- xi[-c(1, length(xi))]
-mid <- xi[-length(xi)] + h / 2
-Sn <- h / 6 * (fx(a) + 4 * (sum(fx(mid))) + 2 * (sum(fx(xis))) + fx(b))
-Sn
+A <- matrix(c(3, 6, 15, 18, 1, 4, 11, 16, 2, 7, 18, 25, 1, 11, 34, 56), nrow = 4)
+b <- c(5, 5, 6, -4)
+qr <- qr(A)
+qr
+ei <- eigen(A)
+ei
+svd <- svd(A)
+svd
+A1 <- MASS::ginv(A)
+A1

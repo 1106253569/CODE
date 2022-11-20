@@ -1,7 +1,5 @@
 -- Active: 1662366682577@@127.0.0.1@3306@student
 
-CREATE DATABASE STUDENT DEFAULT CHARACTER SET = 'utf8mb4';
-
 CREATE DATABASE
     student ON PRIMARY(
         name = 'stu',
