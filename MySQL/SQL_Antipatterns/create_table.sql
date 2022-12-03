@@ -1,4 +1,5 @@
-CREATE DATABASE DataScience;
+CREATE DATABASE DataScience
+    DEFAULT CHARACTER SET = 'utf8mb4';
 
 USE datascience;
 

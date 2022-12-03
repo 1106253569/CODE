@@ -84,5 +84,6 @@
   },
   "workbench.colorTheme": "Atom One Light",
   "livePreview.defaultPreviewPath": "/HTML/Practice/简历.html",
-  "python.analysis.typeCheckingMode": "basic" // 格式化时调整include的顺序（按字母排序）
+  "python.analysis.typeCheckingMode": "basic",
+  "r.lsp.promptToInstall": false // 格式化时调整include的顺序（按字母排序）
 }
