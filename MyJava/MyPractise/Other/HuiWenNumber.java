@@ -7,17 +7,17 @@ public class HuiWenNumber {
         int value = Integer.parseInt(strValue);
         int[] values = Number2Array(value);
         int times = 0;
-        String strAnswer = Integer.toString(value);
+        StringBuilder strAnswer = new StringBuilder(Integer.toString(value));
         boolean flag = values[0] != values[values.length - 1];
         while (flag) {
             times++;
-            strAnswer += "--->";
+            strAnswer.append("--->");
             int v = Array2Number(values);
             for (int i = 0; i < values.length / 2; i++) {
                 swap(values, i);
             }
             int value1 = Array2Number(values) + v;
-            strAnswer += Integer.toString(value1);
+            strAnswer.append(value1);
             values = Number2Array(value1);
 
             int flags = 0;
