@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Admin {
-    private ArrayList<Player> playerList;
     private final Player LandlordCard;
+    private ArrayList<Player> playerList;
 
     public Admin() {
         var deck = new CardDeck();

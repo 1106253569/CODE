@@ -15,10 +15,6 @@ public class Staff
         position = p;
     }
 
-    public void setPosition(String newPosition) {
-        position = newPosition;
-    }
-
     public String getId() {
         return Id;
     }
@@ -27,12 +23,16 @@ public class Staff
         return position;
     }
 
+    public void setPosition(String newPosition) {
+        position = newPosition;
+    }
+
     public String getName() {
         return super.getName();
     }
 
     public String toString() {
-        return "ID: "+getId()+"\tName: "+getName()+"\tSex: "+super.getSex()+"\tPosition: "+getPosition();
+        return "ID: " + getId() + "\tName: " + getName() + "\tSex: " + super.getSex() + "\tPosition: " + getPosition();
     }
 }
 
@@ -40,8 +40,8 @@ class People {
     String name;
     String sex;
 
-    public People(String n,String s) {
-        name=n;
+    public People(String n, String s) {
+        name = n;
         sex = s;
     }
 

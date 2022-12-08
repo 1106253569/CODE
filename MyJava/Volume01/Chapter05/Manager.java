@@ -7,10 +7,6 @@ public class Manager extends Employee {
         bonus = 0;
     }
 
-    public void setBonus(double bonus) {
-        this.bonus = bonus;
-    }
-
     public double getSalary() {
         double baseSalary = super.getSalary();
         return baseSalary + bonus;
@@ -26,5 +22,9 @@ public class Manager extends Employee {
 
     public double getBonus() {
         return bonus;
+    }
+
+    public void setBonus(double bonus) {
+        this.bonus = bonus;
     }
 }

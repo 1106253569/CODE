@@ -2,21 +2,6 @@ import java.util.ArrayList;
 
 public class GENERICS {
 
-    public enum Size {
-        Small("S"), Medium("M"), Large("L");
-
-        private final String abbreviation;
-
-        private Size(String abbreviation) {
-            this.abbreviation = abbreviation;
-        }
-
-        public String getAbbreviation() {
-            return abbreviation;
-        }
-
-    }
-
     public static void main(String[] args) {
         /*Scanner in = new Scanner(System.in);
         System.out.println("How long do you want to create?");
@@ -36,5 +21,20 @@ public class GENERICS {
         System.out.println(true ? n : x);
         Size S = Enum.valueOf(Size.class, "Small");
         System.out.println(S);
+    }
+
+    public enum Size {
+        Small("S"), Medium("M"), Large("L");
+
+        private final String abbreviation;
+
+        private Size(String abbreviation) {
+            this.abbreviation = abbreviation;
+        }
+
+        public String getAbbreviation() {
+            return abbreviation;
+        }
+
     }
 }
