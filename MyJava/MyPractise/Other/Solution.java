@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Solution {
     public static void main(String[] args) {
@@ -39,10 +41,40 @@ public class Solution {
     }
 
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        for (int i = n; i > 0; i--) {
-            nums1[m + n - i - 1] = nums2[n - i - 1];
-        }
+        if (n >= 0) System.arraycopy(nums2, 0, nums1, m, n);
         Arrays.sort(nums1);
     }
 
+    public int[] intersect(int[] nums1, int[] nums2) {
+        HashMap<Integer, int[]> res = new HashMap<Integer, int[]>();
+        for (int i : nums1) {
+            if (res.containsKey(i)) {
+                int[] temp = res.get(i);
+                temp[0] += 1;
+                res.put(i, temp);
+            } else
+                res.put(i, new int[]{1, 0});
+        }
+        for (int i : nums2) {
+            if (res.containsKey(i)) {
+                int[] temp = res.get(i);
+                temp[1] += 1;
+                res.put(i, temp);
+            }
+        }
+        ArrayList<Integer> coincide = new ArrayList<Integer>();
+        for (Map.Entry<Integer, int[]> entry : res.entrySet()) {
+            int[] temp = entry.getValue();
+            int i = Math.min(temp[0], temp[1]);
+            while (i > 0) {
+                coincide.add(entry.getKey());
+                i -= 1;
+            }
+        }
+        int[] d = new int[coincide.size()];
+        for (int i = 0; i < coincide.size(); i++) {
+            d[i] = coincide.get(i);
+        }
+        return d;
+    }
 }

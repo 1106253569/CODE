@@ -80,7 +80,8 @@
     "forward_list": "cpp",
     "list": "cpp",
     "map": "cpp",
-    "set": "cpp"
+    "set": "cpp",
+    "bitset": "cpp"
   },
   "workbench.colorTheme": "Atom One Light",
   "livePreview.defaultPreviewPath": "/HTML/Practice/简历.html",
