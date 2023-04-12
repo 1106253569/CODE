@@ -1,10 +1,4 @@
-#include<iostream>
-typedef int ElemType;
-
-typedef struct LNode{
-    ElemType data;
-    LNode *next;
-} *LinkList;
+#include "List.h"
 
 void List_HeadInsert(LinkList &L)
 {
@@ -13,7 +7,7 @@ void List_HeadInsert(LinkList &L)
     L = (LinkList)malloc(sizeof(LNode));
     L->next = NULL;
     scanf("%d", &x);
-    while (x!=9999)
+    while (x != 9999)
     {
         s = (LNode *)malloc(sizeof(LNode));
         s->data = x;
@@ -23,15 +17,21 @@ void List_HeadInsert(LinkList &L)
     }
 }
 
+void LLPrint(LinkList L)
+{
+    LNode *temp = L->next;
+    while (temp != NULL)
+    {
+        std::cout << temp->data << ' ';
+        temp = temp->next;
+    }
+    std::cout << '\n';
+}
+
 int main()
 {
     LinkList L;
     List_HeadInsert(L);
-    LNode *temp=L->next;
-    while (temp != NULL)
-    {
-        std::cout << temp->data<<' ';
-        temp = temp->next;
-    }
+    LLPrint(L);
     return 0;
 }

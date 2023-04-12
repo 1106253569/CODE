@@ -1,10 +1,40 @@
-#include<iostream>
-#define MaxSize 50
-typedef int Elemtype;
+#include "Stack.h"
 
-struct SqStack
+void InitStack(SqStack &S)
 {
-    Elemtype data[MaxSize];
-    int top=-1;
-};
+    S.top = -1;
+}
+
+bool StackEmpty(SqStack &S)
+{
+    if(S.top==-1)
+        return true;
+        else
+        return false;
+}
+
+bool Push(SqStack &S,Elemtype x)
+{
+    if(S.top==MaxSize-1)
+        return false;
+    S.data[++S.top] = x;
+    return true;
+}
+
+bool Pop(SqStack &S,Elemtype &x)
+{
+    if(S.top==-1)
+        return false;
+    x = S.data[S.top--];
+    return true;
+}
+
+bool GetTop(SqStack &S, Elemtype &x)
+{
+    if(S.top==-1)
+        return false;
+    x = S.data[S.top];
+    return true;
+}
+
 

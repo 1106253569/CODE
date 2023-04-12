@@ -1,16 +1,7 @@
-#include <iostream>
-
-#define InitSize 100
-typedef int ElmeType;
-
-struct SeqList
-{
-    ElmeType *data;
-    int MaxSize, length;
-};
+#include "List.h"
 
 int main()
 {
     SeqList L;
-    L.data = (ElmeType *)malloc(sizeof(ElmeType) * InitSize);
+    L.data = (ElemType *)malloc(sizeof(ElemType) * InitSize);
 }
