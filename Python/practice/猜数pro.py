@@ -11,6 +11,6 @@ while number != autonumber:
     elif number < autonumber:
         print("too small")
         min_temp = number
-    number = int(input("please enter number({}~{}):".format(min_temp, max_temp)))
+    number = int(input(f"please enter number({min_temp}~{max_temp}):"))
     i += 1
-print("恭喜,预测{}次，你猜中了！".format(i))
+print(f"恭喜,预测{i}次，你猜中了！")

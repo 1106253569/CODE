@@ -1,14 +1,10 @@
-﻿#include <iostream>
+﻿#include "base.h"
 
-#define MaxSize 50
-#define InitSize 100
-typedef int ElemType;
-
-//静态顺序表
+// 静态顺序表
 struct SqList
 {
 	ElemType data[MaxSize];
-	int length=0;
+	int length = 0;
 	void Print()
 	{
 		for (int i = 0; i < length; i++)
@@ -17,17 +13,16 @@ struct SqList
 	}
 };
 
-//动态顺序表
+// 动态顺序表
 struct SeqList
 {
 	ElemType *data;
 	int MaxSize1, length;
 };
 
-//链表
+// 链表
 typedef struct LNode
 {
 	ElemType data;
 	LNode *next;
 } *LinkList;
-

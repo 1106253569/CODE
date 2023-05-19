@@ -1,6 +1,4 @@
-#include <iostream>
-#define MaxSize 50
-typedef int Elemtype;
+#include "base.h"
 
 struct SqStack
 {
