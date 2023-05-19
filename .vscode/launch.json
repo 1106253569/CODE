@@ -12,7 +12,6 @@
       "console": "integratedTerminal"
     },
     {
-      "label": "C/C++: g++.exe build active file",
       "name": "C/C++: Build and debug active file",
       "type": "cppdbg",
       "request": "launch",
