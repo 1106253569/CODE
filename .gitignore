@@ -1,2 +1,4 @@
 *.exe
 c_cpp_properties.json
+setting.json
+build/
