@@ -4,11 +4,11 @@
 class Gun
 {
 public:
-    Gun(std::string type) : _type(type), _bullet_count(0) {}
+    Gun(std::string _type) : type(_type), bullet_count(0) {}
     void addBullet(int bullet_num);
     bool shoot();
 
 private:
-    int _bullet_count;
-    std::string _type;
+    std::string type;
+    int bullet_count;
 };

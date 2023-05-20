@@ -84,9 +84,7 @@
     "bitset": "cpp"
   },
   "workbench.colorTheme": "Atom One Light",
-  "livePreview.defaultPreviewPath": "/HTML/Practice/简历.html",
   "python.analysis.typeCheckingMode": "basic",
-  "r.lsp.promptToInstall": false,
   "C_Cpp.errorSquiggles": "disabled",// 格式化时调整include的顺序（按字母排序）
-  "cmake.sourceDirectory": "/workspaces/CODE/C++/" 
+  "cmake.sourceDirectory": "${workspaceFolder}/C++/SoliderAssault/" 
 }
