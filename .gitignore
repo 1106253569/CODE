@@ -2,3 +2,6 @@
 c_cpp_properties.json
 setting.json
 build/
+src/
+.metals/
+.scalafmt.conf
