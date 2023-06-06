@@ -23,13 +23,14 @@ object hello {
         println(s"${i} BinaryString is ${i.toBinaryString}")
       }
     }
-    // 设置50-100之间的五个整数用于测试函数
+    // 设置50-100之间的五个整数用于测试方法
     val score = Range(50, 100, step = 10)
     for (i <- score.reverse) {
       println(s"$i: ${scoreChange(i)}")
     }
   }
 
+  // 方法
   private def scoreChange(score: Double): Char = {
     val result =
       if (score >= 90) 'A'
@@ -39,4 +40,6 @@ object hello {
       else 'E'
     return result
   }
+  //函数
+  val F1=(x1:Int,x2:Int)=>{x1+x2}
 }
