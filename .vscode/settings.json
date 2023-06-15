@@ -85,7 +85,7 @@
   },
   "workbench.colorTheme": "Atom One Light",
   "python.analysis.typeCheckingMode": "basic",
-  "C_Cpp.errorSquiggles": "disabled",// 格式化时调整include的顺序（按字母排序）
+  "C_Cpp.errorSquiggles": "enabled",// 格式化时调整include的顺序（按字母排序）
   "cmake.sourceDirectory": "${workspaceFolder}/C++/SoliderAssault/",
   "files.watcherExclude": {
     "**/target": true

@@ -1,6 +1,7 @@
 #include <math.h>
-#include "omp.h"
-#include <stdio.h>
+#include <iostream>
+#include <omp.h>
+
 int main()
 {
     int a, b, c, tid;
@@ -9,21 +10,21 @@ int main()
     b = -2;
     c = -3;
     tid = omp_get_thread_num();
-    printf("a=%d,b=%d,c=%d,id=%d\n", a, b, c, tid);
+    printf("i=0,a=%d,b=%d,c=%d,id=%d\n", a, b, c, tid);
     printf("before parallel\n");
     printf("during parallel\n");
 #pragma omp parallel private(a, b, tid) shared(c)
     {
         int d = -4;
         tid = omp_get_thread_num();
-        printf("a=%d,b=%d,c=%d,d=%d,id=%d\n", a, b, c, d, tid);
+        printf("i=1,a=%d,b=%d,c=%d,d=%d,id=%d\n", a, b, c, d, tid);
         b = 10 + tid;
-        c = c + int(pow(10, tid));
-        d = d + int(pow(10, tid));
-        printf("a=%d,b=%d,c=%d,d=%d,id=%d changed\n", a, b, c, d, tid);
+        c = (int)(c + pow(10, tid));
+        d = (int)(d + pow(10, tid));
+        printf("i=2,a=%d,b=%d,c=%d,d=%d,id=%d changed\n", a, b, c, d, tid);
     }
     tid = omp_get_thread_num();
     printf("after parallel\n");
-    printf("a=%d,b=%d,c=%d,id=%d\n", a, b, c, tid);
+    printf("i=3,a=%d,b=%d,c=%d,id=%d\n", a, b, c, tid);
     return 0;
 }
