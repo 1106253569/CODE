@@ -2,8 +2,8 @@
 #include <omp.h>
 #include <stdio.h>
 
-#define iterations 100000000
-#define nthreads 2
+#define N 100000000
+#define NUM_THREADS 4
 
 double Simpson(double a, double b, int n, double (*f)(double x))
 {
@@ -19,17 +19,17 @@ double Simpson(double a, double b, int n, double (*f)(double x))
 
 double Simpson_parallel(double a, double b, int n, double (*f)(double x))
 {
-    double sum1[nthreads];
-    double sum2[nthreads];
+    double sum1[NUM_THREADS];
+    double sum2[NUM_THREADS];
     double h = (b - a) / n;
     int tid;
     int i;
-    for (i = 0; i < nthreads; i++)
+    for (i = 0; i < NUM_THREADS; i++)
     {
         sum1[i] = 0;
         sum2[i] = 0;
     }
-#pragma omp parallel num_threads(nthreads) private(i, tid) shared(a, b, h, sum1, sum2)
+#pragma omp parallel num_threads(NUM_THREADS) private(i, tid) shared(a, b, h, sum1, sum2)
     {
         tid = omp_get_thread_num();
 #pragma omp for
@@ -38,7 +38,7 @@ double Simpson_parallel(double a, double b, int n, double (*f)(double x))
         for (i = 2; i <= n - 2; i += 2)
             sum2[tid] += f(a + i * h);
     }
-    for (i = 1; i < nthreads; i++)
+    for (i = 1; i < NUM_THREADS; i++)
     {
         sum1[0] += sum1[i];
         sum2[0] += sum2[i];
@@ -51,7 +51,7 @@ double Simpson_parallel2(double a, double b, int n, double (*f)(double x))
     double h = (b - a) / n;
     double sum1 = 0, sum2 = 0;
     int i, tid;
-#pragma omp parallel num_threads(nthreads) reduction(+ : sum1, sum2) private(i, tid) shared(a, b, h)
+#pragma omp parallel num_threads(NUM_THREADS) reduction(+ : sum1, sum2) private(i, tid) shared(a, b, h)
     {
         tid = omp_get_thread_num();
 #pragma omp for
@@ -75,7 +75,7 @@ int main()
 
     // 串行计算
     start = omp_get_wtime();
-    result_serial = Simpson(0, 1, iterations, f);
+    result_serial = Simpson(0, 1, N, f);
     end = omp_get_wtime();
     double simple_time = end - start;
     printf("串行结果：π = %f\n", result_serial);
@@ -83,7 +83,7 @@ int main()
 
     // 并行计算 - 按线程私有数组划分
     start = omp_get_wtime();
-    result_parallel = Simpson_parallel(0, 1, iterations, f);
+    result_parallel = Simpson_parallel(0, 1, N, f);
     end = omp_get_wtime();
     printf("并行结果：π = %f\n", result_parallel);
     printf("并行时间：%fs\n", end - start);
@@ -91,7 +91,7 @@ int main()
 
     // 并行计算 - 按指定变量归约
     start = omp_get_wtime();
-    result_parallel2 = Simpson_parallel2(0, 1, iterations, f);
+    result_parallel2 = Simpson_parallel2(0, 1, N, f);
     end = omp_get_wtime();
     printf("并行结果：π = %f\n", result_parallel2);
     printf("并行时间：%fs\n", end - start);
