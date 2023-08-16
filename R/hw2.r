@@ -1,6 +1,0 @@
-height <- c(170, 189, 172, 167, 169, 192, 184, 170, 183, 175)
-weight <- c(60, 78, 62, 45, 50, 80, 75, 63, 67, 62)
-cor(height, weight)
-plot(height,weight)
-abline(lm(height ~ weight))
-abline(lm(weight ~ height))
